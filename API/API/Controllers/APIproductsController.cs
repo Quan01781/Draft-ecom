@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore;
 namespace API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
-    public class ProductsController : ControllerBase
+    [Route("api/product")]
+    public class APIproductsController : ControllerBase
     {
         public ProjectServices _projectServices;
         //private ShopDbContext _context;
 
-        public ProductsController(ProjectServices projectServices)
+        public APIproductsController(ProjectServices projectServices)
         {
             _projectServices = projectServices;
         }
