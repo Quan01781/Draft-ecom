@@ -1,0 +1,29 @@
+﻿@using ShareViewModel.DTO
+@model List<ProductsDTO>
+
+@{
+    ViewData["Title"] = "Products";
+
+    //List<ProductModel> products = ViewBag.listProduct;
+
+    //var products = ViewData["listProductFromViewData"] as List<ProductModel>;
+}
+
+<table cellpadding="10" cellspacing="10" border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Quantity</th>
+    </tr>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>@product.ID</td>
+            <td>@product.Name</td>
+            <td>@product.Number</td>
+        </tr>
+    }
+</table>
+
+@*<h1>@ViewData["Title"]</h1>*@
+

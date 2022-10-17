@@ -2,17 +2,19 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using ecommerce.Models;
-using API.Services;
+using CustomerSite.Clients;
 
 namespace ecommerce.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IProductClient productClient;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IProductClient productClient)
         {
             _logger = logger;
+            this.productClient = productClient;
         }
 
         public IActionResult Index()
@@ -24,6 +26,15 @@ namespace ecommerce.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult> Product()
+        {
+            var products = await productClient.GetAllProduct();
+
+            return View(products);
+        }
+
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
