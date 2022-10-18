@@ -2,9 +2,19 @@
     ViewData["Title"] = "Home Page";
 }
 
-@*<link rel="stylesheet" href="../Views" /*@>
+@*<link rel="stylesheet" href="../Views" /*@
 
-<script>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<div class="row">
+    @await Component.InvokeAsync("Category")
+</div>
+
+@*<script>
     const newProduct = [
         {
             image: "./images/product-1.png",
@@ -214,10 +224,10 @@
         </footer>
     </div>
 
-    <script src="./ejs.js"></script>
+    @*<script src="./ejs.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js">
 
-    </script>
-</body>
-</html>
+    </script>*@
+@*</body>
+</html>*@
 

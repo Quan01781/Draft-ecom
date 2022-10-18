@@ -1,40 +1,36 @@
-﻿using API.Services;
+﻿
+using CustomerSite.Clients;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CustomerSite.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
+   
     public class ProductsController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
 
-        public ProjectServices _projectServices;
+        private readonly IProductClient _productClient;
+        //public ProjectServices _projectServices;
         //private ShopDbContext _context;
 
-        public ProductsController(ProjectServices projectServices)
+        public ProductsController(IProductClient productClient)
         {
-            _projectServices = projectServices;
+            _productClient = productClient;
         }
 
-        [HttpGet("get-all-products")]
         public IActionResult GetAllProducts()
         {
-            var allProducts = _projectServices.GetAllProducts();
+            var allProducts = _productClient.GetAllProduct();
 
-            return Ok(allProducts);
+            return Json(allProducts);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetProductById(int id)
-        {
-            var Product = _projectServices.GetProductById(id);
+        //[Route("{id}")]
+        //public IActionResult GetProductById(int id)
+        //{
+        //    var Product = _productClient.GetProductById(id);
 
-            return Ok(Product);
-        }
+        //    return Json(Product);
+        //}
 
         //[HttpPost("add-product")]
         //public IActionResult AddProduct(Products product)
@@ -44,16 +40,6 @@ namespace CustomerSite.Controllers
         //}
 
 
-
-        //[HttpPost]
-        //public async Task<ActionResult<Products>> PostProducts(Products productitem)
-        //{
-        //    _context.Products.Add(productitem);
-        //    await _context.SaveChangesAsync();
-
-        //    //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
-        //    return CreatedAtAction(nameof(GetTodoItem), new { id = productitem.ID }, productitem);
-        //}
 
     }
 

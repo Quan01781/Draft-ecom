@@ -1,0 +1,14 @@
+﻿@using ShareViewModel.DTO;
+@model List<ProductsDTO>
+
+
+<div class="card-columns col-3">
+	@foreach (var item in Model){
+		<div class="card text-center">
+			<div class="card-header">@item.Number</div>
+			<div class="card-body">
+				<h5 class="card-title">@item.Name</h5>
+			</div>
+		</div>
+	}
+</div>
