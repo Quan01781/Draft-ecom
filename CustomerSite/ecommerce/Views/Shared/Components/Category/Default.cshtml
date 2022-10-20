@@ -2,13 +2,20 @@
 @model List<ProductsDTO>
 
 
-<div class="card-columns col-3">
+<div>
 	@foreach (var item in Model){
-		<div class="card text-center">
+		<div class="card text-center float-start col-lg-4 col-md-4 m-0">
 			<div class="card-header">@item.Number</div>
 			<div class="card-body">
 				<h5 class="card-title">@item.Name</h5>
 			</div>
 		</div>
+
+		@*<div>
+			<div class="col-lg-4 col-md-4">
+				<div class="product-bg">@item.Name</div>
+				<div class="hover">Product detail</div>
+			</div>
+		</div>*@
 	}
 </div>
