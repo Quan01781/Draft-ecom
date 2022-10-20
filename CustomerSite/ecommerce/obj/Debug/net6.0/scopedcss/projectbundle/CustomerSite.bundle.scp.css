@@ -1,0 +1,127 @@
+/* _content/CustomerSite/Views/Home/Index.cshtml.rz.scp.css */
+/*banner*/
+.banner-wrapper[b-z61qy95nmj] {
+position:relative
+}
+
+.banner-message[b-z61qy95nmj] {
+    color: sienna;
+    font-size: 100px;
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+
+#four[b-z61qy95nmj] {
+    font-family: "Roboto", sans-serif
+}
+
+/*product background*/
+.product-section[b-z61qy95nmj] {
+    background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/product-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:bottom center;
+    overflow: hidden;
+    position:relative;
+}
+
+.section-padding[b-z61qy95nmj] {
+    padding: 20px 0 60px 0;
+}
+
+
+.title-bg-gray[b-z61qy95nmj] {
+    font-family: Love;
+    font-size: 50px;
+    background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/title-gray-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 80px 0;
+    text-align: center;
+    color: #fff;
+}
+
+/*slogan*/
+.slogan[b-z61qy95nmj] {
+    background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/slogan-bg.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: right;
+    height: 100px;
+    position: relative;
+}
+
+.slogan > p[b-z61qy95nmj] {
+    font-family:Floydian;
+    font-size: 40px;
+    color: yellow;
+    top: 20%;
+    position: absolute;
+} 
+/* _content/CustomerSite/Views/Shared/Components/Category/Default.cshtml.rz.scp.css */
+.product-bg[b-3c54aqmhdw] {
+    background-color: #F3F3F3;
+    text-align:center;
+    padding: 100px 40px;
+}
+
+.hover[b-3c54aqmhdw] {
+    width: 100%;
+    bottom: 0px;
+    text-align: center;
+    background-color: wheat;
+    padding: 10px 0px;
+    /*visibility: hidden;*/
+    
+}
+/* _content/CustomerSite/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-0zhrz4idoo] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-0zhrz4idoo] {
+  color: #0077cc;
+}
+
+.btn-primary[b-0zhrz4idoo] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-0zhrz4idoo], .nav-pills .show > .nav-link[b-0zhrz4idoo] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-0zhrz4idoo] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-0zhrz4idoo] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-0zhrz4idoo] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-0zhrz4idoo] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-0zhrz4idoo] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}

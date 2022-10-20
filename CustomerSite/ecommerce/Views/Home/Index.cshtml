@@ -5,7 +5,8 @@
 @*<link rel="stylesheet" href="../Views" /*@
 
 <!--Banner-->
-<div class="container-fluid p-0">
+<div>
+<div class="banner-wrapper">
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -31,10 +32,15 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
-</div>
+
+    <div class="banner-message">
+        <h4>Welcome</h4>
+    </div>
+ </div>
+ </div>
 
 <!--4 ser-->
-<div id="four" class="row pt-2 my-2">
+<div id="four" class="row pt-2 my-2 ms-5">
     <div class="col medium6 small-12 large-3">
         <div class="d-flex w-100">
         <div>
@@ -82,18 +88,18 @@
 </div>
 
 <!--Product-->
-<section class="product-section section-padding">
+<div class="product-section section-padding">
     <h2 class="title-bg-gray">Products</h2>
 
-    <div class="container">
+    @*<div class="container">
     <div class="row">
     @await Component.InvokeAsync("Category")
     </div>
-    </div>
-</section>
+    </div>*@
+</div>
 
 <!--slogan-->
-<div class="container slogan">
+<div class="container-fluid slogan">
     <p class="ms-5">This is slogan</p>
 </div>
 

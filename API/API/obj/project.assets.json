@@ -3378,6 +3378,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "ShareViewModel/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ShareViewModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ShareViewModel.dll": {}
+        }
       }
     }
   },
@@ -9335,6 +9345,11 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "ShareViewModel/1.0.0": {
+      "type": "project",
+      "path": "../ShareViewModel/ShareViewModel.csproj",
+      "msbuildProject": "../ShareViewModel/ShareViewModel.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -9342,6 +9357,7 @@
       "Microsoft.AspNetCore.Mvc >= 2.2.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.10",
+      "ShareViewModel >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -9352,11 +9368,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\ecommer\\API\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\assignment\\API\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\DELL\\Desktop\\ecommer\\API\\API\\API.csproj",
+      "projectPath": "C:\\Users\\DELL\\Desktop\\assignment\\API\\API\\API.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\Desktop\\ecommer\\API\\API\\obj\\",
+      "outputPath": "C:\\Users\\DELL\\Desktop\\assignment\\API\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -9376,7 +9392,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\DELL\\Desktop\\assignment\\API\\ShareViewModel\\ShareViewModel.csproj": {
+              "projectPath": "C:\\Users\\DELL\\Desktop\\assignment\\API\\ShareViewModel\\ShareViewModel.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

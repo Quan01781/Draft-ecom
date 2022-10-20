@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\Desktop\\ecommer\\ecommerce\\ecommerce\\ecommerce.csproj": {}
+    "C:\\Users\\DELL\\Desktop\\assignment\\CustomerSite\\ecommerce\\ecommerce.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\Desktop\\ecommer\\ecommerce\\ecommerce\\ecommerce.csproj": {
+    "C:\\Users\\DELL\\Desktop\\assignment\\CustomerSite\\ecommerce\\ecommerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\ecommer\\ecommerce\\ecommerce\\ecommerce.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\assignment\\CustomerSite\\ecommerce\\ecommerce.csproj",
         "projectName": "ecommerce",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\ecommer\\ecommerce\\ecommerce\\ecommerce.csproj",
+        "projectPath": "C:\\Users\\DELL\\Desktop\\assignment\\CustomerSite\\ecommerce\\ecommerce.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Desktop\\ecommer\\ecommerce\\ecommerce\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\Desktop\\assignment\\CustomerSite\\ecommerce\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
