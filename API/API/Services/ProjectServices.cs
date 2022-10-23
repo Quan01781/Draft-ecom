@@ -1,4 +1,5 @@
 ﻿using API.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Services
 {
@@ -13,8 +14,8 @@ namespace API.Services
         public List<Products> GetAllProducts() => _context.Products.ToList();
 
 
-        public Products GetProductById(int id) => _context.Products.FirstOrDefault(x => x.ID == id);
-
+        //public Products GetProductByName(string name) => _context.Products.FirstOrDefault(x => x.Name == name);
+        public List<Products> GetProductByCharacter(string searchstring) => _context.Products.Where(x => x.Name.Contains(searchstring)).ToList();
         public void AddProduct(Products products) {
             var _product = new Products();
 

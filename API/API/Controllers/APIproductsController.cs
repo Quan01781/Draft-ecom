@@ -2,6 +2,7 @@
 using API.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Xml.Linq;
 
 namespace API.Controllers
 {
@@ -25,13 +26,13 @@ namespace API.Controllers
             return Ok(allProducts);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetProductById(int id)
-        {
-            var Product = _projectServices.GetProductById(id);
+        //[HttpGet("{name}")]
+        //public IActionResult GetProductByName(string name)
+        //{
+        //    var Product = _projectServices.GetProductByName(name);
 
-            return Ok(Product);
-        }
+        //    return Ok(Product);
+        //}
 
         [HttpPost("add-product")]
         public IActionResult AddProduct(Products product) {
@@ -39,7 +40,13 @@ namespace API.Controllers
             return Ok();
         }
 
-        
+        [HttpGet("search/{searchstring}")]
+        public IActionResult GetProductFilter(string searchstring) 
+        {
+            var ProductFilter = _projectServices.GetProductByCharacter(searchstring);
+
+            return Ok(ProductFilter);
+        }
 
         //[HttpPost]
         //public async Task<ActionResult<Products>> PostProducts(Products productitem)
