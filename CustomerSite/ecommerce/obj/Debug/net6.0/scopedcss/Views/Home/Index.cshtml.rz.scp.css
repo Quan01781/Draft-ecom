@@ -1,15 +1,21 @@
 /*banner*/
+.homesite[b-z61qy95nmj] {
+    padding:0;
+}
+
 .banner-wrapper[b-z61qy95nmj] {
-position:relative
+    position:relative;
 }
 
 .banner-message[b-z61qy95nmj] {
     color: sienna;
-    font-size: 100px;
+    font-family: MoonDanceOne, sans-serif;
+    font-size: 2em;
     position: absolute;
     top: 30%;
     left: 20%;
     transform: translate(-50%, -50%);
+
 }
 
 #four[b-z61qy95nmj] {
@@ -21,9 +27,9 @@ position:relative
     background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/product-bg.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position:bottom center;
+    background-position: bottom center;
+    position: relative;
     overflow: hidden;
-    position:relative;
 }
 
 .section-padding[b-z61qy95nmj] {
@@ -32,7 +38,7 @@ position:relative
 
 
 .title-bg-gray[b-z61qy95nmj] {
-    font-family: Love;
+    font-family: Lovelo-Black;
     font-size: 50px;
     background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/title-gray-bg.png);
     background-repeat: no-repeat;
@@ -45,17 +51,18 @@ position:relative
 /*slogan*/
 .slogan[b-z61qy95nmj] {
     background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/slogan-bg.jpg);
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: right;
-    height: 100px;
+    /*background-position: right;*/
+    height: 200px;
     position: relative;
+    overflow: hidden;
 }
 
-.slogan > p[b-z61qy95nmj] {
-    font-family:Floydian;
-    font-size: 40px;
-    color: yellow;
-    top: 20%;
-    position: absolute;
-} 
+    .slogan > p[b-z61qy95nmj] {
+        font-family: Lovelo-Black;
+        font-size: 40px;
+        color: yellow;
+        top: 30%;
+        position: absolute;
+    } 

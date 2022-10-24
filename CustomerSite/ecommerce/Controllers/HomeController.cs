@@ -35,9 +35,9 @@ namespace ecommerce.Controllers
         }
 
 
-        public async Task<IActionResult> ProductByFilter()
+        public async Task<IActionResult> ProductByFilter(string searchstring)
         {
-            var products = await productClient.GetProductByFilter();
+            var products = await productClient.GetProductByFilter(searchstring);
 
             return View(products);
         }

@@ -9,7 +9,7 @@ namespace CustomerSite.Clients
     public interface IProductClient
     {
         Task<List<ProductsDTO>> GetAllProduct();
-        Task<List<ProductsDTO>> GetProductByFilter();
+        Task<List<ProductsDTO>> GetProductByFilter(string searchstring);
     }
 
     public class ProductClient : BaseClient, IProductClient
@@ -33,8 +33,8 @@ namespace CustomerSite.Clients
             return products ?? new List<ProductsDTO>();
         }
 
-        public async Task<List<ProductsDTO>> GetProductByFilter() {
-            var response = await httpClient.GetAsync("api/product/search/{searchstring}");
+        public async Task<List<ProductsDTO>> GetProductByFilter(string searchstring) {
+            var response = await httpClient.GetAsync("api/product/search/" + searchstring);
             var contents = await response.Content.ReadAsStringAsync();
 
             var product = JsonConvert.DeserializeObject<List<ProductsDTO>>(contents);

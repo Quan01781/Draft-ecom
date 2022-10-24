@@ -5,16 +5,17 @@
 
 .banner-wrapper {
     position:relative;
-    overflow:hidden;
 }
 
 .banner-message {
     color: sienna;
-    font-size: 100px;
+    font-family: MoonDanceOne, sans-serif;
+    font-size: 2em;
     position: absolute;
     top: 30%;
     left: 20%;
     transform: translate(-50%, -50%);
+
 }
 
 #four {

@@ -1,16 +1,102 @@
+/* _content/CustomerSite/Views/Home/About.cshtml.rz.scp.css */
+.about-us[b-q99f04hqxj] {
+    background-color: #F9E67E;
+    position:relative;
+    overflow:hidden;
+    padding: 60px 0;
+}
+
+.title[b-q99f04hqxj] {
+    font-family: Lovelo-Black;
+    font-size: 50px;
+    background-image: url(https://localhost:44380/wwwroot/upload/image/about-site/about-us-title-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 80px 0px;
+    text-align: center;
+    color: #fff;
+}
+
+
+span[b-q99f04hqxj] {
+    color: #F96060;
+
+}
+
+.about-img[b-q99f04hqxj] {
+    width: 100%;
+    margin-left: 30px;
+    margin-top: 25px;
+    vertical-align: middle;
+    border-style: none;
+}
+
+/*service*/
+.service[b-q99f04hqxj] {
+    background-image: url(https://localhost:44380/wwwroot/upload/image/3service/service-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 60px 0;
+}
+.service-img[b-q99f04hqxj] {
+    margin: auto;
+    vertical-align: middle;
+    border-style: none;
+}
+
+
+    .service h3[b-q99f04hqxj] {
+        font-family: Lovelo-Black;
+        color: #7EAFF9;
+        font-size: 22px;
+    }
+/*offer*/
+.offer[b-q99f04hqxj] {
+    background-image: url(https://localhost:44380/wwwroot/upload/image/offer.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0;
+    height: 200px;
+}
+
+.text-center[b-q99f04hqxj] {
+    text-align: center;
+}
+
+.offer h2[b-q99f04hqxj] {
+    font-family: Lovelo-Black;
+    font-size: 35px;
+    color: #FFF;
+    margin: 0px;
+}
+
+.offer p[b-q99f04hqxj] {
+    font-family: Gabriola;
+    font-size: 55px;
+    margin: 0px;
+    color:#fff;
+}
 /* _content/CustomerSite/Views/Home/Index.cshtml.rz.scp.css */
 /*banner*/
+.homesite[b-z61qy95nmj] {
+    padding:0;
+}
+
 .banner-wrapper[b-z61qy95nmj] {
-position:relative
+    position:relative;
 }
 
 .banner-message[b-z61qy95nmj] {
     color: sienna;
-    font-size: 100px;
+    font-family: MoonDanceOne, sans-serif;
+    font-size: 2em;
     position: absolute;
     top: 30%;
     left: 20%;
     transform: translate(-50%, -50%);
+
 }
 
 #four[b-z61qy95nmj] {
@@ -22,9 +108,9 @@ position:relative
     background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/product-bg.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position:bottom center;
+    background-position: bottom center;
+    position: relative;
     overflow: hidden;
-    position:relative;
 }
 
 .section-padding[b-z61qy95nmj] {
@@ -33,7 +119,7 @@ position:relative
 
 
 .title-bg-gray[b-z61qy95nmj] {
-    font-family: Love;
+    font-family: Lovelo-Black;
     font-size: 50px;
     background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/title-gray-bg.png);
     background-repeat: no-repeat;
@@ -46,20 +132,46 @@ position:relative
 /*slogan*/
 .slogan[b-z61qy95nmj] {
     background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/slogan-bg.jpg);
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: right;
-    height: 100px;
+    /*background-position: right;*/
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+    .slogan > p[b-z61qy95nmj] {
+        font-family: Lovelo-Black;
+        font-size: 40px;
+        color: yellow;
+        top: 30%;
+        position: absolute;
+    } 
+/* _content/CustomerSite/Views/Home/ProductByFilter.cshtml.rz.scp.css */
+.product-section[b-ksay4ov5pd] {
+    background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/product-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    overflow: hidden;
     position: relative;
 }
 
-.slogan > p[b-z61qy95nmj] {
-    font-family:Floydian;
-    font-size: 40px;
-    color: yellow;
-    top: 20%;
-    position: absolute;
-} 
+.section-padding[b-ksay4ov5pd] {
+    padding: 20px 0 60px 0;
+}
+
+
+.title-bg-gray[b-ksay4ov5pd] {
+    font-family: Love;
+    font-size: 50px;
+    background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/title-gray-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 80px 0;
+    text-align: center;
+    color: #fff;
+}
 /* _content/CustomerSite/Views/Shared/Components/Category/Default.cshtml.rz.scp.css */
 .product-bg[b-3c54aqmhdw] {
     background-color: #F3F3F3;

@@ -15,5 +15,6 @@ namespace API.Models
         [Required]
         public double Price { get; set; }
         public ICollection<Category> Categories { get; set; }
+
     }
 }
