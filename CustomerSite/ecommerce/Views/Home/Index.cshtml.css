@@ -1,6 +1,11 @@
 ﻿/*banner*/
+.homesite {
+    padding:0;
+}
+
 .banner-wrapper {
-position:relative
+    position:relative;
+    overflow:hidden;
 }
 
 .banner-message {
@@ -21,9 +26,9 @@ position:relative
     background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/product-bg.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position:bottom center;
+    background-position: bottom center;
+    position: relative;
     overflow: hidden;
-    position:relative;
 }
 
 .section-padding {
@@ -32,7 +37,7 @@ position:relative
 
 
 .title-bg-gray {
-    font-family: Love;
+    font-family: Lovelo-Black;
     font-size: 50px;
     background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/title-gray-bg.png);
     background-repeat: no-repeat;
@@ -45,17 +50,18 @@ position:relative
 /*slogan*/
 .slogan {
     background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/slogan-bg.jpg);
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: right;
-    height: 100px;
+    /*background-position: right;*/
+    height: 200px;
     position: relative;
+    overflow: hidden;
 }
 
-.slogan > p {
-    font-family:Floydian;
-    font-size: 40px;
-    color: yellow;
-    top: 20%;
-    position: absolute;
-} 
+    .slogan > p {
+        font-family: Lovelo-Black;
+        font-size: 40px;
+        color: yellow;
+        top: 30%;
+        position: absolute;
+    } 
