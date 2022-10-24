@@ -22,7 +22,7 @@ namespace ecommerce.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult About()
         {
             return View();
         }
@@ -34,6 +34,13 @@ namespace ecommerce.Controllers
             return View(products);
         }
 
+
+        public async Task<IActionResult> ProductByFilter()
+        {
+            var products = await productClient.GetProductByFilter();
+
+            return View(products);
+        }
         
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

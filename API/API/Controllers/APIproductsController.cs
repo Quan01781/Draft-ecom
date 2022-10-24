@@ -34,14 +34,14 @@ namespace API.Controllers
         //    return Ok(Product);
         //}
 
-        [HttpPost("add-product")]
-        public IActionResult AddProduct(Products product) {
-            _projectServices.AddProduct(product);
-            return Ok();
-        }
+        //[HttpPost("add-product")]
+        //public IActionResult AddProduct(Products product) {
+        //    _projectServices.AddProduct(product);
+        //    return Ok();
+        //}
 
         [HttpGet("search/{searchstring}")]
-        public IActionResult GetProductFilter(string searchstring) 
+        public IActionResult GetProductByFilter(string searchstring) 
         {
             var ProductFilter = _projectServices.GetProductByCharacter(searchstring);
 

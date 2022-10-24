@@ -1,0 +1,24 @@
+﻿.product-section {
+    background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/product-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    overflow: hidden;
+    position: relative;
+}
+
+.section-padding {
+    padding: 20px 0 60px 0;
+}
+
+
+.title-bg-gray {
+    font-family: Love;
+    font-size: 50px;
+    background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/title-gray-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 80px 0;
+    text-align: center;
+    color: #fff;
+}
