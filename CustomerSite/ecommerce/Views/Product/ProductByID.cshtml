@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="product-main row mt-2">
+    <div class="large-6 col">..</div>
+    <div class="col col-fit">
+        <nav class="ToUpper">
+            <a href="#">Home</a>
+            <!-- <span class="span">/</span>>
+            <a href="#"></a> -->
+        </nav>
+        <h1>Product 1</h1>
+        <div class="is-divider"></div>
+        <div class="price-wrapper">
+            <p class="price">
+                <span class="amount">
+                    price
+                    <span class="currency"><u>đ</u></span>
+                </span>
+            </p>
+        </div>
+
+        <div>
+            <p>description</p>
+            <ul>
+                <li>
+                    Product Code:
+                </li>
+                <li>
+                    Category:
+                </li>
+            </ul>
+        </div>
+
+        <form class="cart" method="post">
+            <input type="number" value="1" step="1" class="quantity-field text-center me-2" style="width:10%">
+            <button type="submit" class="button-add">Add to cart</button>
+        </form>
+    </div>
+</div>

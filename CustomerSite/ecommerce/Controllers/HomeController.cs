@@ -1,7 +1,6 @@
 ﻿using ecommerce.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using ecommerce.Models;
 using CustomerSite.Clients;
 
 namespace ecommerce.Controllers
