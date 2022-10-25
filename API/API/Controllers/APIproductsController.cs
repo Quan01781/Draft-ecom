@@ -26,13 +26,13 @@ namespace API.Controllers
             return Ok(allProducts);
         }
 
-        //[HttpGet("{name}")]
-        //public IActionResult GetProductByName(string name)
-        //{
-        //    var Product = _projectServices.GetProductByName(name);
+        [HttpGet("{ID}")]
+        public IActionResult GetProductByID(int ID)
+        {
+            var Product = _projectServices.GetProductByID(ID);
 
-        //    return Ok(Product);
-        //}
+            return Ok(Product);
+        }
 
         //[HttpPost("add-product")]
         //public IActionResult AddProduct(Products product) {

@@ -13,8 +13,7 @@ namespace API.Services
 
         public List<Products> GetAllProducts() => _context.Products.ToList();
 
-
-        //public Products GetProductByName(string name) => _context.Products.FirstOrDefault(x => x.Name == name);
+        public Products GetProductByID(int ID) => _context.Products.FirstOrDefault(x => x.ID == ID);
         public List<Products> GetProductByCharacter(string searchstring) => _context.Products.Where(x => x.Name.Contains(searchstring)).ToList();
         public void AddProduct(Products products) {
             var _product = new Products();
