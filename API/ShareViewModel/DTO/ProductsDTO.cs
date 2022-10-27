@@ -7,8 +7,11 @@ namespace ShareViewModel.DTO
    
         public string Name { get; set; }
   
-        public int Number { get; set; }
+        public int Quantity { get; set; }
   
         public double Price { get; set; }
+        public int CategoryID { get; set; }
+        public string? Image { get; set; }
+        public string? Description { get; set; }
     }
 }

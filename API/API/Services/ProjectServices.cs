@@ -20,7 +20,7 @@ namespace API.Services
 
             _product.ID = products.ID;
             _product.Name = products.Name;
-            _product.Number = products.Number;
+            _product.Quantity = products.Quantity;
             _product.Price = products.Price;
            
 

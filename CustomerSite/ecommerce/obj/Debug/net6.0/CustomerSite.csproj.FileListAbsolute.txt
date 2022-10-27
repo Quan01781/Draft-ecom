@@ -279,3 +279,4 @@ C:\Users\DELL\Desktop\assignment\CustomerSite\ecommerce\bin\Debug\net6.0\runtime
 C:\Users\DELL\Desktop\assignment\CustomerSite\ecommerce\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\DELL\Desktop\assignment\CustomerSite\ecommerce\obj\Debug\net6.0\scopedcss\Views\Home\ProductByFilter.cshtml.rz.scp.css
 C:\Users\DELL\Desktop\assignment\CustomerSite\ecommerce\obj\Debug\net6.0\scopedcss\Views\Home\About.cshtml.rz.scp.css
+C:\Users\DELL\Desktop\assignment\CustomerSite\ecommerce\obj\Debug\net6.0\scopedcss\Views\Product\ProductByID.cshtml.rz.scp.css

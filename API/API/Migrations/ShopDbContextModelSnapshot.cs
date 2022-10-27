@@ -46,6 +46,13 @@ namespace API.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Category");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Name = "A1"
+                        });
                 });
 
             modelBuilder.Entity("API.Models.Products", b =>
@@ -56,17 +63,38 @@ namespace API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
+                    b.Property<int?>("CategoryID")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Created_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Created_by")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Number")
-                        .HasColumnType("int");
-
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Updated_at")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("ID");
+
+                    b.HasIndex("CategoryID");
 
                     b.ToTable("Products");
 
@@ -74,89 +102,27 @@ namespace API.Migrations
                         new
                         {
                             ID = 1,
+                            CategoryID = 1,
                             Name = "AA",
-                            Number = 10,
-                            Price = 10000.0
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Name = "BB",
-                            Number = 15,
-                            Price = 20000.0
-                        },
-                        new
-                        {
-                            ID = 3,
-                            Name = "CC",
-                            Number = 20,
-                            Price = 30000.0
-                        },
-                        new
-                        {
-                            ID = 4,
-                            Name = "DD",
-                            Number = 11,
-                            Price = 20000.0
-                        },
-                        new
-                        {
-                            ID = 5,
-                            Name = "EE",
-                            Number = 12,
-                            Price = 70000.0
-                        },
-                        new
-                        {
-                            ID = 6,
-                            Name = "FF",
-                            Number = 16,
-                            Price = 65000.0
-                        },
-                        new
-                        {
-                            ID = 7,
-                            Name = "GG",
-                            Number = 17,
-                            Price = 30000.0
-                        },
-                        new
-                        {
-                            ID = 8,
-                            Name = "HH",
-                            Number = 15,
-                            Price = 70000.0
+                            Price = 10000.0,
+                            Quantity = 10
                         });
                 });
 
-            modelBuilder.Entity("CategoryProducts", b =>
+            modelBuilder.Entity("API.Models.Products", b =>
                 {
-                    b.Property<int>("CategoriesID")
-                        .HasColumnType("int");
+                    b.HasOne("API.Models.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<int>("ProductsID")
-                        .HasColumnType("int");
-
-                    b.HasKey("CategoriesID", "ProductsID");
-
-                    b.HasIndex("ProductsID");
-
-                    b.ToTable("CategoryProducts");
+                    b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("CategoryProducts", b =>
+            modelBuilder.Entity("API.Models.Category", b =>
                 {
-                    b.HasOne("API.Models.Category", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("API.Models.Products", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }
