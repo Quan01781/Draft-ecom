@@ -58,10 +58,10 @@ namespace API.Controllers
         }
 
 
-        [HttpGet("category/{ID}&{page}")]
-        public IActionResult GetProductByCategory(int ID, int? page)
+        [HttpGet("category")]
+        public IActionResult GetProductByCategory([FromQuery]int? page, [FromQuery]int ID)
         {
-            var Product = _projectServices.GetProductByCategory(ID,page);
+            var Product = _projectServices.GetProductByCategory(page, ID);
 
             return Ok(Product);
         }

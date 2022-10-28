@@ -18,7 +18,7 @@ namespace API.Services
 
 
         public List<Category> GetAllCategories() => _context.Category.ToList();
-        public List<Products> GetProductByCategory(int ID, int? page) 
+        public List<Products> GetProductByCategory(int? page, int ID) 
         {
             var pageNumber = page ?? 1;
             var pageSize = 10;
