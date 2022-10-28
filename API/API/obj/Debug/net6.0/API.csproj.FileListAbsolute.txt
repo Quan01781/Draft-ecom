@@ -142,3 +142,6 @@ C:\Users\DELL\Desktop\assignment\API\API\obj\Debug\net6.0\API.genruntimeconfig.c
 C:\Users\DELL\Desktop\assignment\API\API\obj\Debug\net6.0\ref\API.dll
 C:\Users\DELL\Desktop\assignment\API\API\bin\Debug\net6.0\ShareViewModel.dll
 C:\Users\DELL\Desktop\assignment\API\API\bin\Debug\net6.0\ShareViewModel.pdb
+C:\Users\DELL\Desktop\assignment\API\API\bin\Debug\net6.0\JetBrains.Annotations.dll
+C:\Users\DELL\Desktop\assignment\API\API\bin\Debug\net6.0\X.PagedList.dll
+C:\Users\DELL\Desktop\assignment\API\API\bin\Debug\net6.0\X.PagedList.Mvc.Core.dll

@@ -48,6 +48,23 @@ namespace API.Controllers
             return Ok(ProductFilter);
         }
 
+
+        [HttpGet("get-all-categories")]
+        public IActionResult GetAllCategories()
+        {
+            var allCategories = _projectServices.GetAllCategories();
+
+            return Ok(allCategories);
+        }
+
+
+        [HttpGet("category/{ID}&{page}")]
+        public IActionResult GetProductByCategory(int ID, int? page)
+        {
+            var Product = _projectServices.GetProductByCategory(ID,page);
+
+            return Ok(Product);
+        }
         //[HttpPost]
         //public async Task<ActionResult<Products>> PostProducts(Products productitem)
         //{

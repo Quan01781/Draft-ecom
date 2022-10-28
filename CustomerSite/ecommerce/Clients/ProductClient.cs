@@ -11,7 +11,10 @@ namespace CustomerSite.Clients
         Task<List<ProductsDTO>> GetAllProduct();
         Task<ProductsDTO> GetProductByID(int ID);
         Task<List<ProductsDTO>> GetProductByFilter(string searchstring);
-        
+        Task<List<CategoryDTO>> GetAllCategories();
+        Task<List<ProductsDTO>> GetProductByCategory(int ID, int? page);
+
+
     }
 
     public class ProductClient : BaseClient, IProductClient
@@ -51,6 +54,24 @@ namespace CustomerSite.Clients
             return product ?? new List<ProductsDTO>();
 
         }
-        
+
+        public async Task<List<CategoryDTO>> GetAllCategories()
+        {
+            var response = await httpClient.GetAsync("api/product/get-all-categories");
+            var contents = await response.Content.ReadAsStringAsync();
+
+            var products = JsonConvert.DeserializeObject<List<CategoryDTO>>(contents);
+
+            return products ?? new List<CategoryDTO>();
+        }
+        public async Task<List<ProductsDTO>> GetProductByCategory(int ID, int? page)
+        {
+            var response = await httpClient.GetAsync("api/product/category/" + ID +"&"+ page);
+            var contents = await response.Content.ReadAsStringAsync();
+
+            var product = JsonConvert.DeserializeObject<List<ProductsDTO>>(contents);
+            return product ?? new List<ProductsDTO>();
+        }
+
     }
 }

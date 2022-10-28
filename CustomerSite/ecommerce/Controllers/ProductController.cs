@@ -20,5 +20,12 @@ namespace ecommerce.Controllers
 
             return View(products);
         }
+
+        public async Task<IActionResult> ProductByCategory(int ID, int? page)
+        {
+            var products = await productClient.GetProductByCategory(ID, page);
+
+            return View(products);
+        }
     }
 }

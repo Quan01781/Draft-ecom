@@ -26,6 +26,11 @@ namespace ecommerce.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Categories() 
+        {
+            var categories = await productClient.GetAllCategories();
+            return View(categories);
+        }
         public async Task<IActionResult> Product()
         {
             var products = await productClient.GetAllProduct();
