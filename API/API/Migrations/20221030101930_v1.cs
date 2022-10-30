@@ -52,6 +52,28 @@ namespace API.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Rating",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Star = table.Column<int>(type: "int", nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProductID = table.Column<int>(type: "int", nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Rating", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Rating_Products_ProductID",
+                        column: x => x.ProductID,
+                        principalTable: "Products",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "Category",
                 columns: new[] { "ID", "Created_at", "Created_by", "Name", "Updated_at" },
@@ -66,10 +88,18 @@ namespace API.Migrations
                 name: "IX_Products_CategoryID",
                 table: "Products",
                 column: "CategoryID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Rating_ProductID",
+                table: "Rating",
+                column: "ProductID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Rating");
+
             migrationBuilder.DropTable(
                 name: "Products");
 

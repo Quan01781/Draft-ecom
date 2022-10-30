@@ -109,6 +109,34 @@ namespace API.Migrations
                         });
                 });
 
+            modelBuilder.Entity("API.Models.Rating", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Star")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("Rating");
+                });
+
             modelBuilder.Entity("API.Models.Products", b =>
                 {
                     b.HasOne("API.Models.Category", "Category")
@@ -120,9 +148,25 @@ namespace API.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("API.Models.Rating", b =>
+                {
+                    b.HasOne("API.Models.Products", "Product")
+                        .WithMany("Ratings")
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("API.Models.Category", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("API.Models.Products", b =>
+                {
+                    b.Navigation("Ratings");
                 });
 #pragma warning restore 612, 618
         }

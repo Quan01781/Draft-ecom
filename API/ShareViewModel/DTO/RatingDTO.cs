@@ -1,16 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace API.Models
+namespace ShareViewModel.DTO
 {
-    public class Rating
+    public class RatingDTO
     {
         public int ID { get; set; }
         public int Star { get; set; }
         public string Content { get; set; } = "";
         public int ProductID { get; set; }
-        public DateTime CreateDate { get; set; }
-        [ForeignKey("ProductID")]
-        public Products Product { get; set; }
+        public DateTime CreateDate { get; set; }       
     }
 }
