@@ -18,11 +18,12 @@ namespace API.Services
 
 
         public List<Category> GetAllCategories() => _context.Category.ToList();
-        public List<Products> GetProductByCategory(int? page, int ID) 
+        public List<Products> GetProductByCategory(int ID) 
         {
-            var pageNumber = page ?? 1;
-            var pageSize = 10;
-            var productList= _context.Products.OrderByDescending(x => x.ID).Where(x => x.CategoryID == ID).ToPagedList(pageNumber, pageSize).ToList();
+            //var pageNumber = page ?? 1;
+            //var pageSize = 10;
+            //var productList= _context.Products.OrderByDescending(x => x.ID).Where(x => x.CategoryID == ID).ToPagedList(pageNumber, pageSize).ToList();
+            var productList = _context.Products.OrderByDescending(x => x.ID).Where(x => x.CategoryID == ID).ToList();
             return productList;
         } 
 

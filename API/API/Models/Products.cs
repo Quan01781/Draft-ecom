@@ -22,6 +22,6 @@ namespace API.Models
         public DateTime? Updated_at { get; set; }
         [ForeignKey("CategoryID")]
         public Category Category { get; set; }
-
+        public ICollection<Rating> Ratings { get; set; }
     }
 }

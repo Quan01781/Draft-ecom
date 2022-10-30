@@ -12,7 +12,7 @@ namespace CustomerSite.Clients
         Task<ProductsDTO> GetProductByID(int ID);
         Task<List<ProductsDTO>> GetProductByFilter(string searchstring);
         Task<List<CategoryDTO>> GetAllCategories();
-        Task<List<ProductsDTO>> GetProductByCategory(int ID, int? page);
+        Task<List<ProductsDTO>> GetProductByCategory(int ID);
 
 
     }
@@ -64,9 +64,9 @@ namespace CustomerSite.Clients
 
             return products ?? new List<CategoryDTO>();
         }
-        public async Task<List<ProductsDTO>> GetProductByCategory(int ID, int? page)
+        public async Task<List<ProductsDTO>> GetProductByCategory(int ID)
         {
-            var response = await httpClient.GetAsync("api/product/category/" + ID +"&"+ page);
+            var response = await httpClient.GetAsync("api/product/category?ID="+ ID);
             var contents = await response.Content.ReadAsStringAsync();
 
             var product = JsonConvert.DeserializeObject<List<ProductsDTO>>(contents);
