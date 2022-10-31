@@ -1,5 +1,6 @@
 ﻿using API.Models;
 using Microsoft.EntityFrameworkCore;
+using ShareViewModel.DTO;
 using X.PagedList;
 
 namespace API.Services
@@ -13,7 +14,27 @@ namespace API.Services
         }
 
         public List<Products> GetAllProducts() => _context.Products.ToList();
-        public Products GetProductByID(int ID) => _context.Products.FirstOrDefault(x => x.ID == ID);
+        public Products GetProductByID(int ID)
+        {
+            return _context.Products.FirstOrDefault(x => x.ID == ID);
+            
+        }
+
+        public async Task<double> AverageStar(int ID)
+        {
+            double result = 0;
+
+            try
+            {
+                result = await _context.Products.Where(p => p.ID == ID).Select(p => p.Ratings.Average(r => r.Star)).FirstOrDefaultAsync();
+            }
+            catch (System.Exception)
+            {
+                result = 0;
+            }
+            return result;
+        }
+
         public List<Products> GetProductByCharacter(string searchstring) => _context.Products.Where(x => x.Name.Contains(searchstring)).ToList();
 
 
@@ -25,8 +46,40 @@ namespace API.Services
             //var productList= _context.Products.OrderByDescending(x => x.ID).Where(x => x.CategoryID == ID).ToPagedList(pageNumber, pageSize).ToList();
             var productList = _context.Products.OrderByDescending(x => x.ID).Where(x => x.CategoryID == ID).ToList();
             return productList;
-        } 
+        }
 
+        //rating
+        public List<Rating> GetRatingByProductID(int ProductID) {
+            return _context.Ratings.OrderByDescending(r=>r.CreateDate).Where(r => r.ProductID == ProductID).ToList();
+        }
+
+        public async Task<RatingDTO> AddRating(AddRatingDto ratingDto) 
+        {
+            var rating = new Rating();
+            rating.ProductID = ratingDto.ProductID;
+            //rating.Product = await _context.Products.FirstOrDefaultAsync(p => p.ID == ratingDto.ProductID);
+            rating.CreateDate = DateTime.Now;
+            rating.Star = ratingDto.Star;
+            rating.Content = ratingDto.Content;
+
+            var product = await _context.Products.FirstOrDefaultAsync(p => p.ID == ratingDto.ProductID);
+
+            if(product == null)
+            {
+                throw new Exception("Can not find Product");
+            }
+
+            _context.Ratings.Add(rating);
+            
+            _context.SaveChanges();
+       
+            return new RatingDTO() { 
+                ID = rating.ID,
+                Content = rating.Content,
+                Star = rating.Star
+            };
+
+        }
 
         //public void AddProduct(Products products) {
         //    var _product = new Products();
@@ -35,7 +88,7 @@ namespace API.Services
         //    _product.Name = products.Name;
         //    _product.Quantity = products.Quantity;
         //    _product.Price = products.Price;
-           
+
 
         //    _context.Products.Add(_product);
         //    _context.SaveChanges();

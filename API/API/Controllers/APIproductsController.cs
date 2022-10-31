@@ -2,7 +2,10 @@
 using API.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ShareViewModel.DTO;
+using System.Runtime.InteropServices;
 using System.Xml.Linq;
+using ShareViewModel.DTO;
 
 namespace API.Controllers
 {
@@ -64,6 +67,22 @@ namespace API.Controllers
             var Product = _projectServices.GetProductByCategory(ID);
 
             return Ok(Product);
+        }
+
+        //rating
+        [HttpPost("ratings")]
+        public Task<RatingDTO> AddRating([FromBody]AddRatingDto addrating)
+        {
+            var results = _projectServices.AddRating(addrating);
+            return results;
+        }
+
+
+        [HttpGet("product/{productId}")]
+        public IActionResult getProductRating(int ProductID)
+        {
+            var result =  _projectServices.GetRatingByProductID(ProductID);
+            return Ok(result);
         }
         //[HttpPost]
         //public async Task<ActionResult<Products>> PostProducts(Products productitem)

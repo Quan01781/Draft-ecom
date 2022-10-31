@@ -13,6 +13,7 @@ namespace CustomerSite.Clients
         Task<List<ProductsDTO>> GetProductByFilter(string searchstring);
         Task<List<CategoryDTO>> GetAllCategories();
         Task<List<ProductsDTO>> GetProductByCategory(int ID);
+        Task<AddRatingDto> AddRating(int Star, string Comment, int ProductID);
 
 
     }
@@ -72,6 +73,24 @@ namespace CustomerSite.Clients
             var product = JsonConvert.DeserializeObject<List<ProductsDTO>>(contents);
             return product ?? new List<ProductsDTO>();
         }
+
+        public async Task<AddRatingDto> AddRating(int Star, string Comment, int ProductID)
+        {
+            var rating = new AddRatingDto() 
+            {
+                Star = Star,
+                Content = Comment,
+                ProductID = ProductID
+            };
+            var json= JsonConvert.SerializeObject(rating);
+            
+            var response = await httpClient.PostAsync("api/product/ratings", new StringContent(json, Encoding.UTF8, "application/json"));
+            var contents = await response.Content.ReadAsStringAsync();
+
+            var product = JsonConvert.DeserializeObject<AddRatingDto>(contents);
+            return product ?? new AddRatingDto();
+        }
+
 
     }
 }

@@ -13,6 +13,7 @@ namespace API.Models
 
         public DbSet<Products> Products { get; set; }
         public DbSet<Category> Category { get; set; }
+        public DbSet<Rating> Ratings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

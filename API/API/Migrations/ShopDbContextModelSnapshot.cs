@@ -134,7 +134,7 @@ namespace API.Migrations
 
                     b.HasIndex("ProductID");
 
-                    b.ToTable("Rating");
+                    b.ToTable("Ratings");
                 });
 
             modelBuilder.Entity("API.Models.Products", b =>

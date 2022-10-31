@@ -31,5 +31,14 @@ namespace ecommerce.Controllers
             return View (products);
             //return View(await PaginatedList<ProductsDTO>.CreateAsync(products,pageNumber,5));
         }
+
+        public async Task<IActionResult> RatingProduct(IFormCollection form) {
+            string Comment = form["comment"];
+            int Star = int.Parse(form["star"]);
+            int ProductID = int.Parse(form["ID"]);
+
+            var rating = await productClient.AddRating(Star,Comment, ProductID);
+            return RedirectToAction("About","Home");
+        }
     }
 }

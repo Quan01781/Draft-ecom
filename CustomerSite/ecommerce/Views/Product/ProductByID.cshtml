@@ -53,27 +53,36 @@
             
                 <div class="large-12 col">
                     <div class="has-border border border-warning border-3 border-opacity-75">
-
+                    <form action="@Url.Action("RatingProduct","Product")" method="post">
                         <div class="comment-rating">
+                            <p name="ID" value="@Model.ID"></p>
                             <h6>Your rating</h6>
 
-                            <input id="input-7-xs" class="rating rating-loading" value="1" data-min="0" data-max="5" data-step="0.5" data-size="xs">
+                            <input name="star" id="input-7-xs" class="rating rating-loading" value="1" data-min="0" data-max="5" data-step="1" data-size="xs">
                             <p class="comment-rating">
                                 <label for="comment" style="display:block">
                                     Your comment
                                 </label>
-                                <textarea cols="45" rows="8"></textarea>
+                                <textarea cols="45" rows="8" name="comment"></textarea>
                             </p>
 
                             <p class="form-submit">
                                 <input name="submit" type="submit" id="submit" class="submit" value="Send">
+                                @Html.HiddenFor(m=>m.ID)
                             </p>
+                            
                         </div>
+                        </form>
 
-                        <p>
+                        
                     </div>
                 </div>
             
         </div>
     </div>
+</div>
+
+<div class="container reviewed">
+
+
 </div>
