@@ -52,7 +52,7 @@
 
 
 /*product rating*/
-.rating {
+.rating-contain {
     padding: 30px 0;
     border-top: 1px solid #ececec
 }
@@ -83,4 +83,10 @@ textarea {
     background-color: #d26e4b;
     border: 1px solid #d26e4b;
     color: white;
+}
+
+/*reviewed*/
+.reviewed {
+    padding: 20px 0;
+    //border-top: 1px solid #ececec
 }

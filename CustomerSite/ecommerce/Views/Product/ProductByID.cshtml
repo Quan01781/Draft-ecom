@@ -46,7 +46,7 @@
     </div>
 </div>
 
-<div class="container rating">
+<div class="container rating-contain">
     <div class="container tab-content">
 
         <div class="tab-panels">
@@ -58,7 +58,7 @@
                             <p name="ID" value="@Model.ID"></p>
                             <h6>Your rating</h6>
 
-                            <input name="star" id="input-7-xs" class="rating rating-loading" value="1" data-min="0" data-max="5" data-step="1" data-size="xs">
+                            <input name="star" id="input-7-xs" class="rating rating-loading" value="0" data-min="0" data-max="5" data-step="1" data-size="xs">
                             <p class="comment-rating">
                                 <label for="comment" style="display:block">
                                     Your comment
@@ -83,6 +83,15 @@
 </div>
 
 <div class="container reviewed">
-
-
+    <div class="container tab-content">
+        <div class="tab-panels">
+            <h6>Rating and Reviewed</h6>
+            @foreach(var rating in @Model.Ratings)
+            {
+                @rating.Star
+                <br />
+                @rating.Content
+            }
+        </div>
+    </div>
 </div>

@@ -14,10 +14,35 @@ namespace API.Services
         }
 
         public List<Products> GetAllProducts() => _context.Products.ToList();
-        public Products GetProductByID(int ID)
+        public ProductsDTO GetProductByID(int ID)
         {
-            return _context.Products.FirstOrDefault(x => x.ID == ID);
-            
+            var x = _context.Products.Where(x => x.ID == ID).Include(x => x.Ratings).FirstOrDefault();
+            ProductsDTO products = new ProductsDTO()
+            {
+                ID = x.ID,
+                Name = x.Name,
+                Quantity = x.Quantity,
+                Price = x.Price,
+                CategoryID = (int)x.CategoryID!,
+                Image = x.Image,
+                Description = x.Description,
+                Ratings = new List<RatingDTO>(),
+            };
+            foreach (var rating in x.Ratings)
+            {
+                var ratingDto = new RatingDTO()
+                {
+                    ID = rating.ID,
+                    ProductID = rating.ProductID,
+                    Content = rating.Content,
+                    CreateDate = rating.CreateDate,
+                    Star = rating.Star,
+                };
+                products.Ratings.Add(ratingDto);
+            }
+            return products;
+
+
         }
 
         public async Task<double> AverageStar(int ID)
