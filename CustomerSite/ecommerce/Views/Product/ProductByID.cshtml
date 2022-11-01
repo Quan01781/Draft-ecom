@@ -86,12 +86,15 @@
     <div class="container tab-content">
         <div class="tab-panels">
             <h6>Rating and Reviewed</h6>
+           
             @foreach(var rating in @Model.Ratings)
             {
-                @rating.Star
-                <br />
-                @rating.Content
+                <div class="reviewed-content rounded-2 align-item-center m-2">
+                <p class="p-2">@rating.Star</p>
+                <p class="p-2">@rating.Content</p>
+                </div>
             }
+           
         </div>
     </div>
 </div>

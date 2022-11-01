@@ -38,7 +38,7 @@ namespace ecommerce.Controllers
             int ProductID = int.Parse(form["ID"]);
 
             var rating = await productClient.AddRating(Star,Comment, ProductID);
-            return RedirectToAction("About","Home");
+            return RedirectToAction("ProductByID", "Product", new { ID = ProductID });
         }
     }
 }
