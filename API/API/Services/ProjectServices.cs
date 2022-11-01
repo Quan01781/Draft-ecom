@@ -16,7 +16,7 @@ namespace API.Services
         public List<Products> GetAllProducts() => _context.Products.ToList();
         public ProductsDTO GetProductByID(int ID)
         {
-            var x = _context.Products.Where(x => x.ID == ID).Include(x => x.Ratings).FirstOrDefault();
+            var x = _context.Products.Where(x => x.ID == ID).Include(x => x.Ratings.OrderByDescending(i=>i.ID)).FirstOrDefault();
             ProductsDTO products = new ProductsDTO()
             {
                 ID = x.ID,
