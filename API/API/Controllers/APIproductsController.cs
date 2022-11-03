@@ -29,6 +29,27 @@ namespace API.Controllers
             return Ok(allProducts);
         }
 
+        [HttpPost("add-product")]
+        public ActionResult<Products> AddProduct([FromBody] AdminProductDTO addproduct)
+        {
+            var result = _projectServices.AddProduct(addproduct);
+            return Ok(result);
+        }
+
+        [HttpPost("update-product/{ID}")]
+        public ActionResult<Products> UpdateProduct([FromBody] AdminProductDTO product, int ID)
+        {
+            var results = _projectServices.UpdateProduct(product, ID);
+            return Ok(results);
+        }
+
+        [HttpPost("delete-product/{ID}")]
+        public IActionResult DeleteProduct(int ID)
+        {
+            _projectServices.DeleteProduct(ID);
+            return Ok();
+        }
+
         [HttpGet("{ID}")]
         public IActionResult GetProductByID(int ID)
         {
@@ -37,21 +58,23 @@ namespace API.Controllers
             return Ok(Product);
         }
 
-        //[HttpPost("add-product")]
-        //public IActionResult AddProduct(Products product) {
-        //    _projectServices.AddProduct(product);
-        //    return Ok();
-        //}
-
-        [HttpGet("search/{searchstring}")]
-        public IActionResult GetProductByFilter(string searchstring) 
+        //search
+        [HttpGet("addmin-search/{searchstring}")]
+        public IActionResult GetProductByFilter(string searchstring)
         {
-            var ProductFilter = _projectServices.GetProductByCharacter(searchstring);
+            var Product = _projectServices.GetProductByCharacter(searchstring);
 
-            return Ok(ProductFilter);
+            return Ok(Product);
         }
 
+        [HttpGet("search/{searching}")]
+        public ActionResult<ProductsDTO> GetProductBySearch(string searching)
+        {
+            var Product = _projectServices.GetProductBySearch(searching);
+            return Ok(Product);
+        }
 
+        //category
         [HttpGet("get-all-categories")]
         public IActionResult GetAllCategories()
         {
@@ -105,14 +128,6 @@ namespace API.Controllers
             var result =  _projectServices.GetRatingByProductID(ProductID);
             return Ok(result);
         }
-        //[HttpPost]
-        //public async Task<ActionResult<Products>> PostProducts(Products productitem)
-        //{
-        //    _context.Products.Add(productitem);
-        //    await _context.SaveChangesAsync();
-
-        //    //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
-        //    return CreatedAtAction(nameof(GetTodoItem), new { id = productitem.ID }, productitem);
-        //}
+        
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
 using ShareViewModel.DTO;
+using System.Collections.Immutable;
 using X.PagedList;
 
 namespace API.Services
@@ -47,6 +48,53 @@ namespace API.Services
 
         }
 
+        public Products AddProduct(AdminProductDTO addproduct) 
+        {
+            var product = new Products();
+            product.ID = addproduct.ID;
+            product.Name = addproduct.Name;
+            product.Quantity = addproduct.Quantity;
+            product.Price = addproduct.Price;
+            product.CategoryID = addproduct.CategoryID;
+            product.Image = addproduct.Image;
+            product.Description = addproduct.Description;
+            product.Created_by = addproduct.Created_by;
+            product.Created_at = DateTime.Now;
+            product.Updated_at = DateTime.Now;
+         
+            _context.Products.Add(product);
+            _context.SaveChanges();
+
+            return product;
+        }
+
+        public Products UpdateProduct(AdminProductDTO updateproduct, int ID)
+        {
+            var product = _context.Products.Where(c => c.ID == ID).FirstOrDefault();
+            if (product != null)
+            {
+                product.Name = updateproduct.Name;
+                product.Quantity = updateproduct.Quantity;
+                product.Price = updateproduct.Price;
+                product.CategoryID=updateproduct.CategoryID;
+                product.Image = updateproduct.Image;
+                product.Description = updateproduct.Description;
+                product.Updated_at = DateTime.Now;
+                _context.SaveChanges();
+            }
+
+            return product;
+        }
+        public int DeleteProduct(int ID) 
+        {
+            var product = _context.Products.Where(c => c.ID == ID).FirstOrDefault();
+            if (product != null)
+            {
+                _context.Products.Remove(product);
+                _context.SaveChanges();
+            }
+            return 0;
+        }
         public async Task<double> AverageStar(int ID)
         {
             double result = 0;
@@ -62,9 +110,29 @@ namespace API.Services
             return result;
         }
 
+        //search
         public List<Products> GetProductByCharacter(string searchstring) => _context.Products.Where(x => x.Name.Contains(searchstring)).ToList();
 
+        public List<ProductsDTO> GetProductBySearch(string searchstring)
+        {
+            var result = _context.Products.Where(x => x.Name.Contains(searchstring)).ToList();
+            var products = new List<ProductsDTO>();
+            foreach (var product in result)
+            {
+                var productDTO = new ProductsDTO();
+                productDTO.ID = product.ID;
+                productDTO.Name = product.Name;
+                productDTO.Price = product.Price;
+                productDTO.Quantity = product.Quantity;
+                productDTO.Image = product.Image;
+                productDTO.Description = product.Description;
+                products.Add(productDTO);
 
+            }
+            return products;
+        }
+
+        //category
         public List<Category> GetAllCategories() => _context.Category.ToList();
         public AdminCategoryDTO AddCategory(AdminCategoryDTO addcategory) 
         {
@@ -159,19 +227,6 @@ namespace API.Services
             };
 
         }
-
-        //public void AddProduct(Products products) {
-        //    var _product = new Products();
-
-        //    _product.ID = products.ID;
-        //    _product.Name = products.Name;
-        //    _product.Quantity = products.Quantity;
-        //    _product.Price = products.Price;
-
-
-        //    _context.Products.Add(_product);
-        //    _context.SaveChanges();
-        //}
 
     }
 }
