@@ -61,6 +61,27 @@ namespace API.Controllers
         }
 
 
+        [HttpPost("add-category")]
+        public ActionResult<AdminCategoryDTO> AddCategory([FromBody] AdminCategoryDTO addcategory)
+        {
+            var results = _projectServices.AddCategory(addcategory);
+            return results;
+        }
+
+        [HttpPost("update-category/{ID}")]
+        public ActionResult<AdminCategoryDTO> UpdateCategory([FromBody] AdminCategoryDTO category, int ID)
+        {
+            var results = _projectServices.UpdateCategory(category,ID);
+            return Ok(results);
+        }
+
+        [HttpPost("delete-category/{ID}")]
+        public IActionResult DeleteCategory(int ID) 
+        {
+            _projectServices.DeleteCategory(ID);
+            return Ok();
+        }
+
         [HttpGet("category")]
         public IActionResult GetProductByCategory([FromQuery]int ID)
         {
