@@ -20,10 +20,6 @@ namespace CustomerSite.Clients
 
     public class ProductClient : BaseClient, IProductClient
     {
-        //public ProductClient(IHttpClientFactory clientFactory, IHttpContextAccessor httpContextAccessor) : base(clientFactory, httpContextAccessor)
-        //{
-
-        //}
 
         public ProductClient(IHttpClientFactory clientFactory) : base(clientFactory)
         {
@@ -58,7 +54,7 @@ namespace CustomerSite.Clients
 
         public async Task<List<CategoryDTO>> GetAllCategories()
         {
-            var response = await httpClient.GetAsync("api/product/get-all-categories");
+            var response = await httpClient.GetAsync("api/category/get-all-categories");
             var contents = await response.Content.ReadAsStringAsync();
 
             var products = JsonConvert.DeserializeObject<List<CategoryDTO>>(contents);
@@ -67,7 +63,7 @@ namespace CustomerSite.Clients
         }
         public async Task<List<ProductsDTO>> GetProductByCategory(int ID)
         {
-            var response = await httpClient.GetAsync("api/product/category?ID="+ ID);
+            var response = await httpClient.GetAsync("api/category/category?ID="+ ID);
             var contents = await response.Content.ReadAsStringAsync();
 
             var product = JsonConvert.DeserializeObject<List<ProductsDTO>>(contents);
@@ -84,7 +80,7 @@ namespace CustomerSite.Clients
             };
             var json= JsonConvert.SerializeObject(rating);
             
-            var response = await httpClient.PostAsync("api/product/ratings", new StringContent(json, Encoding.UTF8, "application/json"));
+            var response = await httpClient.PostAsync("api/rating/ratings", new StringContent(json, Encoding.UTF8, "application/json"));
             var contents = await response.Content.ReadAsStringAsync();
 
             var product = JsonConvert.DeserializeObject<AddRatingDto>(contents);

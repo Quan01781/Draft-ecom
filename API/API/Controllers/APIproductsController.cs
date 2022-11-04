@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using ShareViewModel.DTO;
 using System.Runtime.InteropServices;
 using System.Xml.Linq;
-using ShareViewModel.DTO;
+
 
 namespace API.Controllers
 {
@@ -13,10 +13,10 @@ namespace API.Controllers
     [Route("api/product")]
     public class APIproductsController : ControllerBase
     {
-        public ProjectServices _projectServices;
-        //private ShopDbContext _context;
+        public ProductServices _projectServices;
 
-        public APIproductsController(ProjectServices projectServices)
+
+        public APIproductsController(ProductServices projectServices)
         {
             _projectServices = projectServices;
         }
@@ -72,61 +72,6 @@ namespace API.Controllers
         {
             var Product = _projectServices.GetProductBySearch(searching);
             return Ok(Product);
-        }
-
-        //category
-        [HttpGet("get-all-categories")]
-        public IActionResult GetAllCategories()
-        {
-            var allCategories = _projectServices.GetAllCategories();
-
-            return Ok(allCategories);
-        }
-
-
-        [HttpPost("add-category")]
-        public ActionResult<AdminCategoryDTO> AddCategory([FromBody] AdminCategoryDTO addcategory)
-        {
-            var results = _projectServices.AddCategory(addcategory);
-            return results;
-        }
-
-        [HttpPost("update-category/{ID}")]
-        public ActionResult<AdminCategoryDTO> UpdateCategory([FromBody] AdminCategoryDTO category, int ID)
-        {
-            var results = _projectServices.UpdateCategory(category,ID);
-            return Ok(results);
-        }
-
-        [HttpPost("delete-category/{ID}")]
-        public IActionResult DeleteCategory(int ID) 
-        {
-            _projectServices.DeleteCategory(ID);
-            return Ok();
-        }
-
-        [HttpGet("category")]
-        public IActionResult GetProductByCategory([FromQuery]int ID)
-        {
-            var Product = _projectServices.GetProductByCategory(ID);
-
-            return Ok(Product);
-        }
-
-        //rating
-        [HttpPost("ratings")]
-        public Task<RatingDTO> AddRating([FromBody]AddRatingDto addrating)
-        {
-            var results = _projectServices.AddRating(addrating);
-            return results;
-        }
-
-
-        [HttpGet("product/{productId}")]
-        public IActionResult getProductRating(int ProductID)
-        {
-            var result =  _projectServices.GetRatingByProductID(ProductID);
-            return Ok(result);
         }
         
     }

@@ -145,3 +145,4 @@ C:\Users\DELL\Desktop\assignment\API\API\bin\Debug\net6.0\ShareViewModel.pdb
 C:\Users\DELL\Desktop\assignment\API\API\bin\Debug\net6.0\JetBrains.Annotations.dll
 C:\Users\DELL\Desktop\assignment\API\API\bin\Debug\net6.0\X.PagedList.dll
 C:\Users\DELL\Desktop\assignment\API\API\bin\Debug\net6.0\X.PagedList.Mvc.Core.dll
+C:\Users\DELL\Desktop\assignment\API\API\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll

@@ -26,7 +26,9 @@ builder.Services.AddSwaggerGen();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ShopDbContext>(options =>
     options.UseSqlServer(connectionString));
-builder.Services.AddTransient<ProjectServices>();
+builder.Services.AddTransient<ProductServices>();
+builder.Services.AddTransient<CategoryServices>();
+builder.Services.AddTransient<RatingServices>();
 
 var app = builder.Build();
 
