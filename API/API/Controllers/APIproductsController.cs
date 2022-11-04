@@ -36,14 +36,14 @@ namespace API.Controllers
             return Ok(result);
         }
 
-        [HttpPost("update-product/{ID}")]
+        [HttpPut("update-product/{ID}")]
         public ActionResult<Products> UpdateProduct([FromBody] AdminProductDTO product, int ID)
         {
             var results = _projectServices.UpdateProduct(product, ID);
             return Ok(results);
         }
 
-        [HttpPost("delete-product/{ID}")]
+        [HttpDelete("delete-product/{ID}")]
         public IActionResult DeleteProduct(int ID)
         {
             _projectServices.DeleteProduct(ID);

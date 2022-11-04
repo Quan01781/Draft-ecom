@@ -33,14 +33,14 @@ namespace API.Controllers
             return results;
         }
 
-        [HttpPost("update-category/{ID}")]
+        [HttpPut("update-category/{ID}")]
         public ActionResult<AdminCategoryDTO> UpdateCategory([FromBody] AdminCategoryDTO category, int ID)
         {
             var results = _categoryServices.UpdateCategory(category, ID);
             return Ok(results);
         }
 
-        [HttpPost("delete-category/{ID}")]
+        [HttpDelete("delete-category/{ID}")]
         public IActionResult DeleteCategory(int ID)
         {
             _categoryServices.DeleteCategory(ID);
