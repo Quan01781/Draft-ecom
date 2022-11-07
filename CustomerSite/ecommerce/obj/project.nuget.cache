@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4ejLtbEGtjO7ImP4t2OpltX+GyhfAbNMGMtsUVi/dqUS+lJEoHhIHK2Gl23ozNHTQ5AqSUaOro7qIdUp3i/n6Q==",
+  "dgSpecHash": "tJZlPRcQeIFD9+a5LFN02PkBe6SyTCdL06En6aG2Ru47iX1j32i/5XGz3qrP2IpmGXl+ZmqJexoLOrEptgxRew==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Desktop\\backup\\CustomerSite\\ecommerce\\CustomerSite.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Desktop\\ecommerce\\CustomerSite\\ecommerce\\CustomerSite.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\jetbrains.annotations\\2022.1.0\\jetbrains.annotations.2022.1.0.nupkg.sha512",

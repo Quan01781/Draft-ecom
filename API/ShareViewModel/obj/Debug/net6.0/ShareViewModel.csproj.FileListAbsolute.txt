@@ -22,3 +22,15 @@ C:\Users\DELL\Desktop\backup\API\ShareViewModel\obj\Debug\net6.0\ShareViewModel.
 C:\Users\DELL\Desktop\backup\API\ShareViewModel\obj\Debug\net6.0\refint\ShareViewModel.dll
 C:\Users\DELL\Desktop\backup\API\ShareViewModel\obj\Debug\net6.0\ShareViewModel.pdb
 C:\Users\DELL\Desktop\backup\API\ShareViewModel\obj\Debug\net6.0\ref\ShareViewModel.dll
+C:\Users\DELL\Desktop\ecommerce\API\ShareViewModel\bin\Debug\net6.0\ShareViewModel.deps.json
+C:\Users\DELL\Desktop\ecommerce\API\ShareViewModel\bin\Debug\net6.0\ShareViewModel.dll
+C:\Users\DELL\Desktop\ecommerce\API\ShareViewModel\bin\Debug\net6.0\ShareViewModel.pdb
+C:\Users\DELL\Desktop\ecommerce\API\ShareViewModel\obj\Debug\net6.0\ShareViewModel.csproj.AssemblyReference.cache
+C:\Users\DELL\Desktop\ecommerce\API\ShareViewModel\obj\Debug\net6.0\ShareViewModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Desktop\ecommerce\API\ShareViewModel\obj\Debug\net6.0\ShareViewModel.AssemblyInfoInputs.cache
+C:\Users\DELL\Desktop\ecommerce\API\ShareViewModel\obj\Debug\net6.0\ShareViewModel.AssemblyInfo.cs
+C:\Users\DELL\Desktop\ecommerce\API\ShareViewModel\obj\Debug\net6.0\ShareViewModel.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\ecommerce\API\ShareViewModel\obj\Debug\net6.0\ShareViewModel.dll
+C:\Users\DELL\Desktop\ecommerce\API\ShareViewModel\obj\Debug\net6.0\refint\ShareViewModel.dll
+C:\Users\DELL\Desktop\ecommerce\API\ShareViewModel\obj\Debug\net6.0\ShareViewModel.pdb
+C:\Users\DELL\Desktop\ecommerce\API\ShareViewModel\obj\Debug\net6.0\ref\ShareViewModel.dll
