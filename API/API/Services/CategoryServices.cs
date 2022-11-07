@@ -23,6 +23,7 @@ namespace API.Services
             var category = new Category();
             category.ID = addcategory.ID;
             category.Name = addcategory.Name;
+            category.Description = addcategory.Description;
             category.Created_by = addcategory.Created_by;
             category.Created_at = DateTime.Now;
             category.Updated_at = DateTime.Now;
@@ -34,6 +35,7 @@ namespace API.Services
             {
                 ID = category.ID,
                 Name = category.Name,
+                Description = category.Description,
                 Created_by = category.Created_by,
                 Created_at = category.Created_at,
                 Updated_at = category.Updated_at,
@@ -46,6 +48,7 @@ namespace API.Services
             if (category != null)
             {
                 category.Name = updatecategory.Name;
+                category.Description = updatecategory.Description;
                 category.Updated_at = DateTime.Now;
                 _context.SaveChanges();
             }
@@ -54,6 +57,7 @@ namespace API.Services
             {
                 ID = category.ID,
                 Name = category.Name,
+                Description = category.Description,
                 Created_by = category.Created_by,
                 Created_at = category.Created_at,
                 Updated_at = category.Updated_at,

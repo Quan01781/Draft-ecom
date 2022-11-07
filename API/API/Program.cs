@@ -29,6 +29,7 @@ builder.Services.AddDbContext<ShopDbContext>(options =>
 builder.Services.AddTransient<ProductServices>();
 builder.Services.AddTransient<CategoryServices>();
 builder.Services.AddTransient<RatingServices>();
+builder.Services.AddTransient<CustomerServices>();
 
 var app = builder.Build();
 

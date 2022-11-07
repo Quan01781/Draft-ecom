@@ -283,3 +283,4 @@ C:\Users\DELL\Desktop\assignment\CustomerSite\ecommerce\obj\Debug\net6.0\scopedc
 C:\Users\DELL\Desktop\assignment\CustomerSite\ecommerce\bin\Debug\net6.0\JetBrains.Annotations.dll
 C:\Users\DELL\Desktop\assignment\CustomerSite\ecommerce\bin\Debug\net6.0\X.PagedList.dll
 C:\Users\DELL\Desktop\assignment\CustomerSite\ecommerce\obj\Debug\net6.0\scopedcss\Views\Product\ProductByCategory.cshtml.rz.scp.css
+C:\Users\DELL\Desktop\assignment\CustomerSite\ecommerce\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll

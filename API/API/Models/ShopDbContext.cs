@@ -14,6 +14,7 @@ namespace API.Models
         public DbSet<Products> Products { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Rating> Ratings { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -39,7 +40,7 @@ namespace API.Models
 
             modelBuilder.Entity<Category>().HasData(new List<Category>()
             {
-                new Category(){ID=1, Name= "A1"  } });
+                new Category(){ID=1, Name= "A1", Description="ok"  } });
         }
     }
 }
