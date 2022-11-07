@@ -1,0 +1,363 @@
+/* _content/CustomerSite/Views/Home/About.cshtml.rz.scp.css */
+.about-us[b-q99f04hqxj] {
+    background-color: #F9E67E;
+    position:relative;
+    overflow:hidden;
+    padding: 60px 0;
+}
+
+.title[b-q99f04hqxj] {
+    font-family: Lovelo-Black;
+    font-size: 50px;
+    background-image: url(https://localhost:44380/wwwroot/upload/image/about-site/about-us-title-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 80px 0px;
+    text-align: center;
+    color: #fff;
+}
+
+
+span[b-q99f04hqxj] {
+    color: #F96060;
+
+}
+
+.about-img[b-q99f04hqxj] {
+    width: 100%;
+    margin-left: 30px;
+    margin-top: 25px;
+    vertical-align: middle;
+    border-style: none;
+}
+
+/*service*/
+.service[b-q99f04hqxj] {
+    background-image: url(https://localhost:44380/wwwroot/upload/image/3service/service-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 60px 0;
+}
+.service-img[b-q99f04hqxj] {
+    margin: auto;
+    vertical-align: middle;
+    border-style: none;
+}
+
+
+    .service h3[b-q99f04hqxj] {
+        font-family: Lovelo-Black;
+        color: #7EAFF9;
+        font-size: 22px;
+    }
+/*offer*/
+.offer[b-q99f04hqxj] {
+    background-image: url(https://localhost:44380/wwwroot/upload/image/offer.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0;
+    height: 200px;
+}
+
+.text-center[b-q99f04hqxj] {
+    text-align: center;
+}
+
+.offer h2[b-q99f04hqxj] {
+    font-family: Lovelo-Black;
+    font-size: 35px;
+    color: #FFF;
+    margin: 0px;
+}
+
+.offer p[b-q99f04hqxj] {
+    font-family: Gabriola;
+    font-size: 55px;
+    margin: 0px;
+    color:#fff;
+}
+/* _content/CustomerSite/Views/Home/Index.cshtml.rz.scp.css */
+/*banner*/
+.homesite[b-z61qy95nmj] {
+    padding:0;
+}
+
+.banner-wrapper[b-z61qy95nmj] {
+    position:relative;
+}
+
+.banner-message[b-z61qy95nmj] {
+    color: sienna;
+    font-family: MoonDanceOne, sans-serif;
+    font-size: 2em;
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+
+}
+
+#four[b-z61qy95nmj] {
+    font-family: "Roboto", sans-serif
+}
+
+/*product background*/
+.product-section[b-z61qy95nmj] {
+    background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/product-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-padding[b-z61qy95nmj] {
+    padding: 20px 0 60px 0;
+}
+
+
+.title-bg-gray[b-z61qy95nmj] {
+    font-family: Lovelo-Black;
+    font-size: 50px;
+    background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/title-gray-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 80px 0;
+    text-align: center;
+    color: #fff;
+}
+
+/*slogan*/
+.slogan[b-z61qy95nmj] {
+    background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/slogan-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background-position: right;*/
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+    .slogan > p[b-z61qy95nmj] {
+        font-family: Lovelo-Black;
+        font-size: 40px;
+        color: yellow;
+        top: 30%;
+        position: absolute;
+    } 
+/* _content/CustomerSite/Views/Home/ProductByFilter.cshtml.rz.scp.css */
+.product-section[b-ksay4ov5pd] {
+    background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/product-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    overflow: hidden;
+    position: relative;
+}
+
+.section-padding[b-ksay4ov5pd] {
+    padding: 20px 0 60px 0;
+}
+
+
+.title-bg-gray[b-ksay4ov5pd] {
+    font-family: Love;
+    font-size: 50px;
+    background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/title-gray-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 80px 0;
+    text-align: center;
+    color: #fff;
+}
+/* _content/CustomerSite/Views/Product/ProductByCategory.cshtml.rz.scp.css */
+.product-section[b-25hzwssm0b] {
+    background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/product-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    overflow: hidden;
+    position: relative;
+}
+
+.section-padding[b-25hzwssm0b] {
+    padding: 20px 0 60px 0;
+}
+
+
+.title-bg-gray[b-25hzwssm0b] {
+    font-family: Love;
+    font-size: 50px;
+    background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/title-gray-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 80px 0;
+    text-align: center;
+    color: #fff;
+}
+/* _content/CustomerSite/Views/Product/ProductByID.cshtml.rz.scp.css */
+.product-main[b-auyls25qua] {
+    padding: 40px 0;
+}
+
+#div-footer[b-auyls25qua] {
+    border-top: 1px solid #ebebeb;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+
+.is-divider[b-auyls25qua] {
+    height: 3px;
+    display: block;
+    background-color: rgb(128, 128, 128);
+    margin: 1em 0 1em;
+    width: 100%;
+    max-width: 30px;
+}
+
+.price-wrapper .price[b-auyls25qua] {
+    height: 1.3em;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 120%;
+}
+
+.amount[b-auyls25qua] {
+    color: #C89979;
+    font-weight: bold;
+}
+
+.currency[b-auyls25qua] {
+    vertical-align: top;
+    display: inline-block;
+    font-size: .75em;
+}
+
+.quantity-field[b-auyls25qua] {
+    height: 40px;
+}
+
+.button-add[b-auyls25qua] {
+    background-color: #d26e4b;
+    border: 1px solid #d26e4b;
+    color: white;
+    height: 40px;
+    width: 160px
+}
+
+
+/*product rating*/
+.rating-contain[b-auyls25qua] {
+    padding: 30px 0;
+    border-top: 1px solid #ececec
+}
+
+.tab-content[b-auyls25qua] {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.tab-panels[b-auyls25qua] {
+    border: 1px solid #ddd;
+    padding: 30px;
+    width: 100%;
+    margin-left: 0.1em;
+}
+
+.has-border[b-auyls25qua] {
+    padding: 15px 30px 30px 30px;
+}
+
+
+textarea[b-auyls25qua] {
+    width: 100%;
+    height: 120px;
+}
+
+.submit[b-auyls25qua] {
+    background-color: #d26e4b;
+    border: 1px solid #d26e4b;
+    color: white;
+}
+
+/*reviewed*/
+.reviewed[b-auyls25qua] {
+    padding: 20px 0;
+    //border-top: 1px solid #ececec
+}
+
+.reviewed-content[b-auyls25qua] {
+    border: 1px solid #ececec;
+    width: 100%;
+    height: 100px;
+}
+/* _content/CustomerSite/Views/Shared/Components/Category/Default.cshtml.rz.scp.css */
+.product-bg[b-3c54aqmhdw] {
+    background-color: #F3F3F3;
+    text-align:center;
+    padding: 100px 40px;
+}
+
+.hover[b-3c54aqmhdw] {
+    width: 100%;
+    bottom: 0px;
+    text-align: center;
+    background-color: wheat;
+    padding: 10px 0px;
+    /*visibility: hidden;*/
+    
+}
+/* _content/CustomerSite/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-0zhrz4idoo] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-0zhrz4idoo] {
+  color: #0077cc;
+}
+
+.btn-primary[b-0zhrz4idoo] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-0zhrz4idoo], .nav-pills .show > .nav-link[b-0zhrz4idoo] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-0zhrz4idoo] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-0zhrz4idoo] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-0zhrz4idoo] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-0zhrz4idoo] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-0zhrz4idoo] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}

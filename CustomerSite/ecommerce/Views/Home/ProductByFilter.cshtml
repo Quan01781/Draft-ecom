@@ -1,0 +1,21 @@
+﻿@using ShareViewModel.DTO;
+@model ICollection<ProductsDTO>
+
+@{
+    ViewData["Title"] = "ProductByFilter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="product-section section-padding">
+    <h2 class="title-bg-gray">Products</h2>
+
+   @foreach (var item in Model){
+		<div class="card text-center float-start col-lg-4 col-md-4 m-0">
+			<div class="card-header">@item.Quantity</div>
+			<div class="card-body">
+				<h5 class="card-title">@item.Name</h5>
+			</div>
+		</div>
+	}
+</div>
+

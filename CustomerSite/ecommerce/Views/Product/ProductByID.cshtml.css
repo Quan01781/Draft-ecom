@@ -1,0 +1,98 @@
+﻿.product-main {
+    padding: 40px 0;
+}
+
+#div-footer {
+    border-top: 1px solid #ebebeb;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+
+.is-divider {
+    height: 3px;
+    display: block;
+    background-color: rgb(128, 128, 128);
+    margin: 1em 0 1em;
+    width: 100%;
+    max-width: 30px;
+}
+
+.price-wrapper .price {
+    height: 1.3em;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 120%;
+}
+
+.amount {
+    color: #C89979;
+    font-weight: bold;
+}
+
+.currency {
+    vertical-align: top;
+    display: inline-block;
+    font-size: .75em;
+}
+
+.quantity-field {
+    height: 40px;
+}
+
+.button-add {
+    background-color: #d26e4b;
+    border: 1px solid #d26e4b;
+    color: white;
+    height: 40px;
+    width: 160px
+}
+
+
+/*product rating*/
+.rating-contain {
+    padding: 30px 0;
+    border-top: 1px solid #ececec
+}
+
+.tab-content {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.tab-panels {
+    border: 1px solid #ddd;
+    padding: 30px;
+    width: 100%;
+    margin-left: 0.1em;
+}
+
+.has-border {
+    padding: 15px 30px 30px 30px;
+}
+
+
+textarea {
+    width: 100%;
+    height: 120px;
+}
+
+.submit {
+    background-color: #d26e4b;
+    border: 1px solid #d26e4b;
+    color: white;
+}
+
+/*reviewed*/
+.reviewed {
+    padding: 20px 0;
+    //border-top: 1px solid #ececec
+}
+
+.reviewed-content {
+    border: 1px solid #ececec;
+    width: 100%;
+    height: 100px;
+}

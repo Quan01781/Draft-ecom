@@ -1,0 +1,68 @@
+﻿/*banner*/
+.homesite {
+    padding:0;
+}
+
+.banner-wrapper {
+    position:relative;
+}
+
+.banner-message {
+    color: sienna;
+    font-family: MoonDanceOne, sans-serif;
+    font-size: 2em;
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+
+}
+
+#four {
+    font-family: "Roboto", sans-serif
+}
+
+/*product background*/
+.product-section {
+    background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/product-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-padding {
+    padding: 20px 0 60px 0;
+}
+
+
+.title-bg-gray {
+    font-family: Lovelo-Black;
+    font-size: 50px;
+    background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/title-gray-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 80px 0;
+    text-align: center;
+    color: #fff;
+}
+
+/*slogan*/
+.slogan {
+    background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/slogan-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background-position: right;*/
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+    .slogan > p {
+        font-family: Lovelo-Black;
+        font-size: 40px;
+        color: yellow;
+        top: 30%;
+        position: absolute;
+    } 

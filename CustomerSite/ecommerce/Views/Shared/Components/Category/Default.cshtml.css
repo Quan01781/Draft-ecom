@@ -1,0 +1,15 @@
+﻿.product-bg {
+    background-color: #F3F3F3;
+    text-align:center;
+    padding: 100px 40px;
+}
+
+.hover {
+    width: 100%;
+    bottom: 0px;
+    text-align: center;
+    background-color: wheat;
+    padding: 10px 0px;
+    /*visibility: hidden;*/
+    
+}

@@ -22,7 +22,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/products/get-all-products",
+      "launchUrl": "api/product/get-all-products",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
