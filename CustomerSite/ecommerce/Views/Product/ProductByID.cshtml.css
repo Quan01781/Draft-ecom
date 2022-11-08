@@ -22,6 +22,7 @@
 .price-wrapper .price {
     height: 1.3em;
     display: table-cell;
+    font-size:22px;
     vertical-align: middle;
     text-align: center;
     line-height: 120%;
@@ -50,6 +51,12 @@
     width: 160px
 }
 
+img {
+    width:50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /*product rating*/
 .rating-contain {

@@ -14,7 +14,7 @@
 
 
 <div class="product-main row mt-2">
-    <div class="large-6 col">..</div>
+    <div class="image-product-detail large-6 col"><img src="https://localhost:44380/wwwroot/upload/image/product/@Model.Image" alt="no image"></div>
     <div class="col col-fit">    
         <h1>@Model.Name</h1>
         <div class="is-divider"></div>
@@ -28,7 +28,7 @@
         </div>
 
         <div>
-            <p>description</p>
+            <p><b>Description:</b> @Model.Description</p>
             <ul>
                 <li>
                     Product Code:@Model.ID

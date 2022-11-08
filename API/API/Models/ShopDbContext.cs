@@ -28,7 +28,7 @@ namespace API.Models
 
             modelBuilder.Entity<Products>().HasData(new List<Products>()
             {
-                new Products(){ID=1, Name= "AA", Quantity=10 , Price=10000,CategoryID=1  },
+                new Products(){ID=1, Name= "AA", Quantity=10 , Price=10000,CategoryID=1, Image="product-1.jpg", Description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque.Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam erat mi, rutrum at sollicitudin rhoncus"  },
                 //new Products(){ID=2, Name= "BB", Number=15 , Price=20000  },
                 //new Products(){ID=3, Name= "CC", Number=20 , Price=30000  },
                 //new Products(){ID=4, Name= "DD", Number=11 , Price=20000  },
