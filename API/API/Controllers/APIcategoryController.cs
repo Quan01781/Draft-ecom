@@ -47,7 +47,15 @@ namespace API.Controllers
             return Ok();
         }
 
-        [HttpGet("category")]
+        [HttpGet("category/{ID}")]
+        public IActionResult GetCategoryByID(int ID) 
+        {
+            var result = _categoryServices.GetCategoryByID(ID);
+            return Ok(result);
+        }
+
+
+        [HttpGet("products")]
         public IActionResult GetProductByCategory([FromQuery] int ID)
         {
             var Product = _categoryServices.GetProductByCategory(ID);

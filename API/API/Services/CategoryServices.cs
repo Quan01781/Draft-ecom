@@ -75,6 +75,8 @@ namespace API.Services
             }
             return 0;
         }
+
+        public Category GetCategoryByID(int ID) => _context.Category.Where(c => c.ID == ID).FirstOrDefault();
         public List<Products> GetProductByCategory(int ID)
         {
             //var pageNumber = page ?? 1;

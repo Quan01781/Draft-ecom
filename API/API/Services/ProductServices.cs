@@ -47,6 +47,8 @@ namespace API.Services
 
         }
 
+        public Products GetProductByIDAdmin(int ID) => _context.Products.Where(p => p.ID == ID).FirstOrDefault();
+
         public Products AddProduct(AdminProductDTO addproduct) 
         {
             var product = new Products();

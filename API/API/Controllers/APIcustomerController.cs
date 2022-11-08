@@ -21,5 +21,12 @@ namespace API.Controllers
 
             return Ok(allCustomers);
         }
+
+        [HttpGet("customer/{ID}")]
+        public IActionResult GetCustomerByID(int ID) 
+        {
+            var result = _customerServices.GetCustomerByID(ID);
+            return Ok(result);
+        }
     }
 }

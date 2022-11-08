@@ -29,6 +29,13 @@ namespace API.Controllers
             return Ok(allProducts);
         }
 
+        [HttpGet("admin/product/{ID}")]
+        public IActionResult GetProductByIDAdmin(int ID)
+        {
+            var result = _projectServices.GetProductByIDAdmin(ID);
+            return Ok(result);
+        }
+
         [HttpPost("add-product")]
         public ActionResult<Products> AddProduct([FromBody] AdminProductDTO addproduct)
         {
@@ -59,7 +66,7 @@ namespace API.Controllers
         }
 
         //search
-        [HttpGet("addmin-search/{searchstring}")]
+        [HttpGet("admin-search/{searchstring}")]
         public IActionResult GetProductByFilter(string searchstring)
         {
             var Product = _projectServices.GetProductByCharacter(searchstring);
