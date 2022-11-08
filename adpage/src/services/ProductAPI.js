@@ -61,3 +61,14 @@ export async function DeleteProduct(productID){
   }
 
 }
+
+
+export async function GetProductByID(productID) {
+  try {
+    let result = await axios.get(url+`admin/product/${productID}`);
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}

@@ -8,6 +8,9 @@ import AllProduct from './routes/Product';
 import AllCustomer from './routes/Customer';
 import AddProductPage from './pages/addProduct';
 import UpdateProductPage from './pages/updateProduct';
+import DetailCategory from './pages/viewDetailCategory';
+import DetailCustomer from './pages/viewDetailCustomer';
+import DetailProduct from './pages/viewDetailProduct';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
@@ -27,6 +30,9 @@ function App() {
         <Route path="/customer" element={<AllCustomer />}></Route>
         <Route path="/add-product" element={<AddProductPage/>}></Route>
         <Route path="/update-product" element={<UpdateProductPage/>}></Route>
+        <Route path="/detail-category" element={<DetailCategory/>}></Route>
+        <Route path="/detail-customer" element={<DetailCustomer/>}></Route>
+        <Route path="/detail-product" element={<DetailProduct/>}></Route>
       </Routes>
     </BrowserRouter>
     </div>

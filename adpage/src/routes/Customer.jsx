@@ -1,8 +1,7 @@
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
 import React, { useEffect, useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 import {GetCustomer} from '../services/CustomerAPI';
 import '../App.css';
 
@@ -10,7 +9,7 @@ const AllCustomer= ()=>{
 
     const [customers,setCustomers] = useState([]);
     const [query,setQuery] = useState("")
-
+    const navigate =useNavigate();
 
 
     useEffect( ()=>{
@@ -21,6 +20,11 @@ const AllCustomer= ()=>{
         const result = await GetCustomer();
         console.log(result.data)
         setCustomers(result.data);}
+
+
+    function setCustomerID(ID){
+    localStorage.setItem("customerID",ID);
+    }
 
 
     let table = [];
@@ -34,7 +38,9 @@ const AllCustomer= ()=>{
             <td>{customer.address}</td>
             <td>{customer.email}</td>
             <td>{customer.phone}</td>
-            <td><Button>Detail</Button></td>
+            <td>
+            <Button className='edit-button me-2' variant="primary"  onClick={()=>{navigate("/detail-customer");setCustomerID(customer.id);}}>Detail</Button>
+            </td>
         </tr>    
     
     ));}

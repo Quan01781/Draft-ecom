@@ -10,3 +10,13 @@ export async function GetCustomer() {
     console.log(error);
   }
 }
+
+export async function GetCustomerByID(customerID) {
+  try {
+    let result = await axios.get(url+`customer/${customerID}`);
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}

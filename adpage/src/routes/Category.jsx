@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
 import React, { useEffect, useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 import {GetCategory} from '../services/CategoryAPI';
 import { AddCategory } from '../services/CategoryAPI';
 import { UpdateCategory } from '../services/CategoryAPI';
@@ -17,7 +18,7 @@ const AllCategory = () => {
   const [addShow, setAddShow] = useState(false);
   const [updateShow, setUpdateShow] = useState(false);
   const [deleteShow, setDeleteShow] = useState(false);
- 
+  const navigate =useNavigate();
 
   const handleClose = () => {setAddShow(false);setUpdateShow(false);setDeleteShow(false)}
   const handleAddShow = () => setAddShow(true);
@@ -91,6 +92,7 @@ const AllCategory = () => {
       <td>{category.name}</td>
       <td>{category.description}</td>
       <td>
+        <Button className='edit-button me-2' variant="primary"  onClick={()=>{navigate("/detail-category");setCategoryID(category.id);}}>Detail</Button>
         <Button className='edit-button me-2' variant="primary"  onClick={()=>{handleUpdateShow();setCategoryID(category.id);}}>Edit</Button>
         <Button className='delete-button' style={{backgroundColor:"red"}} onClick={()=>{handleDeleteShow();setCategoryID(category.id);}}>Delete</Button>
       </td>
