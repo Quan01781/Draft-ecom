@@ -11,10 +11,11 @@ export async function GetCategory() {
   }
 }
 
-export async function AddCategory(categoryName){
+export async function AddCategory(categoryName, categoryDescription){
   try {
     let category={
       name: categoryName,
+      description: categoryDescription,
       created_by: null,
       created_at: null,
       updated_at: null
@@ -27,10 +28,11 @@ export async function AddCategory(categoryName){
   }
 }
 
-export async function UpdateCategory(categoryName, categoryID){
+export async function UpdateCategory(categoryName, categoryDescription, categoryID){
   try {
     let category={
       name: categoryName,
+      description: categoryDescription,
       created_by: null,
       created_at: null,
       updated_at: null

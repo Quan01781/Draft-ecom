@@ -34,13 +34,13 @@ const AllCategory = () => {
   console.log(result.data)
   setCategories(result.data);}
 
-  const add_category = async(categoryName) => {
-    const result = await AddCategory(categoryName);
+  const add_category = async(categoryName, categoryDescription) => {
+    const result = await AddCategory(categoryName, categoryDescription);
     console.log(result)
   }
 
-  const update_category = async(categoryName, categoryID)=>{
-    const result = await UpdateCategory(categoryName, categoryID);
+  const update_category = async(categoryName, categoryDescription, categoryID)=>{
+    const result = await UpdateCategory(categoryName, categoryDescription, categoryID);
     console.log(result)
   }
 
@@ -52,7 +52,8 @@ const AllCategory = () => {
   const handleAdd = (e)=>{
     e.preventDefault();
     const name = e.target.name.value;
-    if(add_category(name)){
+    const description = e.target.description.value;
+    if(add_category(name, description)){
       alert("added success")
     }else{ alert("failed")}
   }
@@ -60,8 +61,9 @@ const AllCategory = () => {
   const handleUpdate = (e)=>{
     e.preventDefault();
     const name = e.target.name.value;
+    const description = e.target.description.value;
     const ID = GetCategoryID();
-    if(update_category(name,ID)){
+    if(update_category(name, description, ID)){
       alert("updated success")
     }else{ alert("failed")}
   }
@@ -131,6 +133,13 @@ const AllCategory = () => {
                 // onChange={e => setName(e.target.value)}
               />
             </Form.Group>
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Form.Label>Description</Form.Label>
+              <Form.Control as="textarea" placeholder="description" name="description" rows={3} />
+            </Form.Group>
             <Button type="submit" onClick={handleClose}>
              Add
             </Button>
@@ -158,6 +167,13 @@ const AllCategory = () => {
                 // value={name}
                 // onChange={e => setName(e.target.value)}
               />
+            </Form.Group>
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Form.Label>Description</Form.Label>
+              <Form.Control as="textarea" placeholder="description" name="description" rows={3} />
             </Form.Group>
             <Button type="submit" onClick={handleClose}>
              Update
