@@ -29,6 +29,16 @@ namespace API.Controllers
             return Ok(allProducts);
         }
 
+
+        [HttpGet("admin/get-all-products")]
+        public IActionResult GetAllProductsByAdmin()
+        {
+            var allProducts = _projectServices.GetAllProductsByAdmin();
+
+            return Ok(allProducts);
+        }
+
+
         [HttpGet("admin/product/{ID}")]
         public IActionResult GetProductByIDAdmin(int ID)
         {
@@ -40,6 +50,13 @@ namespace API.Controllers
         public ActionResult<Products> AddProduct([FromBody] AdminProductDTO addproduct)
         {
             var result = _projectServices.AddProduct(addproduct);
+            return Ok(result);
+        }
+
+        [HttpPost("add-image")]
+        public ActionResult UploadFile([FromForm] ImageDTO file) 
+        {
+            var result = _projectServices.UploadFile(file);
             return Ok(result);
         }
 

@@ -18,6 +18,11 @@ namespace ecommerce.Controllers
         {
             this.productClient = productClient;
         }
+
+        //public async Task<IActionResult> GetAllProducts() 
+        //{
+        
+        //}
         public async Task<IActionResult> ProductByID(int ID)
         {
             var products = await productClient.GetProductByID(ID);

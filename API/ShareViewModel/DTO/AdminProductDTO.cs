@@ -1,4 +1,4 @@
-﻿
+﻿using Microsoft.AspNetCore.Http;
 namespace ShareViewModel.DTO
 {
     public class AdminProductDTO
@@ -7,7 +7,7 @@ namespace ShareViewModel.DTO
         public string Name { get; set; }
         public int Quantity { get; set; }
         public double Price { get; set; }
-        public int CategoryID { get; set; }
+        public int? CategoryID { get; set; }
         public string? Image { get; set; }
         public string? Description { get; set; }
         public string? Created_by { get; set; }

@@ -6,10 +6,10 @@ using System.Xml.Schema;
 
 namespace CustomerSite.ViewComponents
 { 
-    public class CategoryViewComponent : ViewComponent
+    public class ProductViewComponent : ViewComponent
     {
         private readonly IProductClient _category;
-        public CategoryViewComponent(IProductClient category) 
+        public ProductViewComponent(IProductClient category) 
         {
             _category = category;
         }

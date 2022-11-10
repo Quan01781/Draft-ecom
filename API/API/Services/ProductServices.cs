@@ -11,12 +11,33 @@ namespace API.Services
     public class ProductServices
     {
         private ShopDbContext _context;
-        public ProductServices(ShopDbContext context)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public ProductServices(ShopDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
-        public List<Products> GetAllProducts() => _context.Products.ToList();
+        public List<Products> GetAllProductsByAdmin() => _context.Products.ToList();
+
+        public List<ProductsDTO> GetAllProducts() {
+            var result = _context.Products.ToList();
+            var products = new List<ProductsDTO>();
+            foreach (var product in result)
+            {
+                var productDTO = new ProductsDTO();
+                productDTO.ID = product.ID;
+                productDTO.Name = product.Name;
+                productDTO.Price = product.Price;
+                productDTO.Quantity = product.Quantity;
+                productDTO.Image = product.Image;
+                productDTO.Description = product.Description;
+                products.Add(productDTO);
+
+            }
+            return products;
+        }
+
         public ProductsDTO GetProductByID(int ID)
         {
             var x = _context.Products.Where(x => x.ID == ID).Include(x => x.Ratings.OrderByDescending(i=>i.ID)).FirstOrDefault();
@@ -51,6 +72,7 @@ namespace API.Services
 
         public Products AddProduct(AdminProductDTO addproduct) 
         {
+   
             var product = new Products();
             product.ID = addproduct.ID;
             product.Name = addproduct.Name;
@@ -69,20 +91,32 @@ namespace API.Services
             return product;
         }
 
+        public string UploadFile(ImageDTO file) 
+        {
+            string fileName = file.FileName;
+            if (file.FormFile != null) {
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Upload/Image/product", file.FileName);
+                using (Stream stream = new FileStream(path, FileMode.Create))
+                {
+                    file.FormFile.CopyTo(stream);
+                } }
+            return fileName;
+           
+        }
+
         public Products UpdateProduct(AdminProductDTO updateproduct, int ID)
         {
             var product = _context.Products.Where(c => c.ID == ID).FirstOrDefault();
-            if (product != null)
-            {
-                product.Name = updateproduct.Name;
-                product.Quantity = updateproduct.Quantity;
-                product.Price = updateproduct.Price;
-                product.CategoryID=updateproduct.CategoryID;
-                product.Image = updateproduct.Image;
-                product.Description = updateproduct.Description;
+
+            if (updateproduct.Name!="") { product.Name = updateproduct.Name; }
+            if (updateproduct.Quantity != null) { product.Quantity = updateproduct.Quantity; }
+            if (updateproduct.Price != null) { product.Price = updateproduct.Price; }
+            if (updateproduct.CategoryID != null) { product.CategoryID = updateproduct.CategoryID; }
+            if (updateproduct.Image != "") { product.Image = updateproduct.Image; }
+            if (updateproduct.Description != "") { product.Description = updateproduct.Description; }
                 product.Updated_at = DateTime.Now;
                 _context.SaveChanges();
-            }
+            
 
             return product;
         }

@@ -7,6 +7,9 @@
 <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.1.2/css/star-rating.min.css" media="all" rel="stylesheet" type="text/css" />
 <!-- with v4.1.0 Krajee SVG theme is used as default (and must be loaded as below) - include any of the other theme CSS files as mentioned below (and change the theme property of the plugin) -->
 <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.1.2/themes/krajee-svg/theme.css" media="all" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 
 <!-- important mandatory libraries -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -89,9 +92,10 @@
            
             @foreach(var rating in @Model.Ratings)
             {
-                <div class="reviewed-content rounded-2 align-item-center m-2">
-                <p class="p-2">@rating.Star</p>
-                <p class="p-2">@rating.Content</p>
+                <div class="reviewed-content rounded-2 align-item-center m-2 ps-2">
+                @for(int i =0;i<rating.Star;i++){
+                <span class="fa fa-star checked"></span>}
+                <p class="">@rating.Content</p>
                 </div>
             }
            

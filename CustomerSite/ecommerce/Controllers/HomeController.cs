@@ -35,7 +35,7 @@ namespace ecommerce.Controllers
         {
             var products = await productClient.GetAllProduct();
 
-            return View(products);
+            return View("ProductByFilter",products);
         }
 
 

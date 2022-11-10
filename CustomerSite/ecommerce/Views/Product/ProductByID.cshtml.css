@@ -101,5 +101,9 @@ textarea {
 .reviewed-content {
     border: 1px solid #ececec;
     width: 100%;
-    height: 100px;
+    height: 65px;
+}
+
+.checked {
+    color:orange;
 }

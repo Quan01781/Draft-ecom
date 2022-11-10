@@ -45,13 +45,11 @@ namespace API.Services
         public AdminCategoryDTO UpdateCategory(AdminCategoryDTO updatecategory, int ID)
         {
             var category = _context.Category.Where(c => c.ID == ID).FirstOrDefault();
-            if (category != null)
-            {
-                category.Name = updatecategory.Name;
-                category.Description = updatecategory.Description;
-                category.Updated_at = DateTime.Now;
-                _context.SaveChanges();
-            }
+            if (updatecategory.Name != "") { category.Name = updatecategory.Name; }
+            if (updatecategory.Description != "") { category.Description = updatecategory.Description; }
+            category.Updated_at = DateTime.Now;
+            _context.SaveChanges();
+            
 
             return new AdminCategoryDTO()
             {
