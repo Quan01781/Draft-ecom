@@ -39,7 +39,7 @@ const AllCustomer= ()=>{
             <td>{customer.email}</td>
             <td>{customer.phone}</td>
             <td>
-            <Button className='edit-button me-2' variant="primary"  onClick={()=>{navigate("/detail-customer");setCustomerID(customer.id);}}>Detail</Button>
+            <Button className='edit-button me-2' variant="success"  onClick={()=>{navigate("/detail-customer");setCustomerID(customer.id);}}>Detail</Button>
             </td>
         </tr>    
     

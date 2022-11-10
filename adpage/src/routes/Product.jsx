@@ -60,9 +60,9 @@ const AllProduct = () => {
              <td>{product.price}</td>
              <td>{product.categoryID}</td> 
              <td>
-                <Button className='edit-button me-2' variant="primary"  onClick={()=>{navigate("/detail-product");setProductID(product.id);}}>Detail</Button>
-                <Button className='edit-button me-2' variant="primary" onClick={()=>{navigate("/update-product");setProductID(product.id);}}>Edit</Button>
-                <Button className='delete-button' style={{backgroundColor:"red"}} onClick={()=>{handleDeleteShow();setProductID(product.id);}}>Delete</Button>
+                <Button className='edit-button me-2' variant="info"  onClick={()=>{navigate("/detail-product");setProductID(product.id);}}>Detail</Button>
+                <Button className='edit-button me-2' variant="success" onClick={()=>{navigate("/update-product");setProductID(product.id);}}>Edit</Button>
+                <Button className='delete-button' variant="danger" onClick={()=>{handleDeleteShow();setProductID(product.id);}}>Delete</Button>
              </td>
            </tr>    
        
@@ -70,7 +70,7 @@ const AllProduct = () => {
 
         return(
             <>
-             <Button variant="primary" onClick={()=>{navigate("/add-product")}}>
+             <Button variant="secondary" onClick={()=>{navigate("/add-product")}}>
                 Add Product
             </Button>
             <>  

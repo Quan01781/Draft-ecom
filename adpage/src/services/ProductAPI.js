@@ -3,7 +3,7 @@ const url = "https://localhost:7243/api/product/";
 // eslint-disable-next-line import/no-anonymous-default-export
 export async function GetProduct() {
   try {
-    let result = await axios.get(url+'get-all-products');
+    let result = await axios.get(url+'admin/get-all-products');
     console.log(result);
     return result;
   } catch (error) {
@@ -11,14 +11,14 @@ export async function GetProduct() {
   }
 }
 
-export async function AddProduct(productName, productQuantity, productPrice, productCategoryID, productDescription){
+export async function AddProduct(productName, productQuantity, productPrice, productCategoryID, productImage, productDescription){
   try {
     let product={
       name: productName,
       quantity: productQuantity,
       price: productPrice,
       categoryID: productCategoryID,
-      image: null,
+      image: productImage,
       description: productDescription,
       created_by: null
     };
@@ -30,14 +30,24 @@ export async function AddProduct(productName, productQuantity, productPrice, pro
   }
 }
 
-export async function UpdateProduct(productID, productName, productQuantity, productPrice, productCategoryID, productDescription){
+export async function AddImage(ImageFile){
+  try {
+    let result = await axios.post(url+'add-image', ImageFile);
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function UpdateProduct(productID, productName, productQuantity, productPrice, productCategoryID, productImage, productDescription){
   try {
     let product={
       name: productName,
       quantity: productQuantity,
       price: productPrice,
       categoryID: productCategoryID,
-      image: null,
+      image: productImage,
       description: productDescription,
       created_by: null
     };

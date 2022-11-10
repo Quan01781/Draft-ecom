@@ -8,6 +8,7 @@ import {GetCategory} from '../services/CategoryAPI';
 import { AddCategory } from '../services/CategoryAPI';
 import { UpdateCategory } from '../services/CategoryAPI';
 import {DeleteCategory} from '../services/CategoryAPI';
+
 import '../App.css';
 
 
@@ -94,9 +95,9 @@ const AllCategory = () => {
       <td>{category.name}</td>
       <td>{category.description}</td>
       <td>
-        <Button className='edit-button me-2' variant="primary"  onClick={()=>{navigate("/detail-category");setCategoryID(category.id);}}>Detail</Button>
-        <Button className='edit-button me-2' variant="primary"  onClick={()=>{handleUpdateShow();setCategoryID(category.id);}}>Edit</Button>
-        <Button className='delete-button' style={{backgroundColor:"red"}} onClick={()=>{handleDeleteShow();setCategoryID(category.id);}}>Delete</Button>
+        <Button className='edit-button me-2' variant="info"  onClick={()=>{navigate("/detail-category");setCategoryID(category.id);}}>Detail</Button>
+        <Button className='edit-button me-2' variant="success"  onClick={()=>{handleUpdateShow();setCategoryID(category.id);}}>Edit</Button>
+        <Button className='delete-button' variant="danger" onClick={()=>{handleDeleteShow();setCategoryID(category.id);}}>Delete</Button>
       </td>
     </tr>    
 
@@ -105,7 +106,7 @@ const AllCategory = () => {
  return (
   <div>
     <>
-     <Button variant="primary" onClick={handleAddShow}>
+     <Button variant="secondary" onClick={handleAddShow}>
         Add Category
       </Button>
 
