@@ -63,7 +63,7 @@ namespace CustomerSite.Clients
         }
         public async Task<List<ProductsDTO>> GetProductByCategory(int ID)
         {
-            var response = await httpClient.GetAsync("api/category/category?ID="+ ID);
+            var response = await httpClient.GetAsync("api/category/products?ID=" + ID);
             var contents = await response.Content.ReadAsStringAsync();
 
             var product = JsonConvert.DeserializeObject<List<ProductsDTO>>(contents);

@@ -6,9 +6,9 @@
     @{
         foreach (var item in Model)
         {
-            <li>
-                @Html.ActionLink(@item.Name, "ProductByCategory", "Product", new{ID=@item.ID,page=1}, null)
-            </li>
+            <li class="dropdown-item" style="text-align:center">
+                @Html.ActionLink(@item.Name, "ProductByCategory", "Product", new{ID=@item.ID,page=1}, new{@style="text-decoration:none;text-transform:capitalize;color:black"})
+                </li>
         }
     }
 </ul>
