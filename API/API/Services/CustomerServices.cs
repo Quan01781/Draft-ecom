@@ -1,8 +1,9 @@
 ﻿using API.Models;
+using API.Interfaces;
 
 namespace API.Services
 {
-    public class CustomerServices
+    public class CustomerServices : ICustomerService
     {
         private ShopDbContext _context;
         public CustomerServices(ShopDbContext context)

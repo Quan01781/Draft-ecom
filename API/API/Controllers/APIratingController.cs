@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using API.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using API.Services;
 using API.Models;
 using ShareViewModel.DTO;
@@ -9,9 +10,8 @@ namespace API.Controllers
     [Route("api/rating")]
     public class APIratingController : ControllerBase
     {
-        public RatingServices _ratingServices;
-
-        public APIratingController(RatingServices ratingServices)
+        private readonly IRatingService _ratingServices;
+        public APIratingController(IRatingService ratingServices)
         {
             _ratingServices = ratingServices;
         }

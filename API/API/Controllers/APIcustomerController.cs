@@ -1,4 +1,5 @@
-﻿using API.Services;
+﻿using API.Interfaces;
+using API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -7,17 +8,17 @@ namespace API.Controllers
     [Route("api/customer")]
     public class APIcustomerController : ControllerBase
     {
-        public CustomerServices _customerServices;
+        private readonly ICustomerService _customerService;
 
-        public APIcustomerController(CustomerServices customerServices)
+        public APIcustomerController(ICustomerService customerService)
         {
-            _customerServices = customerServices;
+            _customerService = customerService;
         }
 
         [HttpGet("get-all-customers")]
         public IActionResult GetAllCustomers()
         {
-            var allCustomers = _customerServices.GetAllCustomers();
+            var allCustomers = _customerService.GetAllCustomers();
 
             return Ok(allCustomers);
         }
@@ -25,7 +26,7 @@ namespace API.Controllers
         [HttpGet("customer/{ID}")]
         public IActionResult GetCustomerByID(int ID) 
         {
-            var result = _customerServices.GetCustomerByID(ID);
+            var result = _customerService.GetCustomerByID(ID);
             return Ok(result);
         }
     }

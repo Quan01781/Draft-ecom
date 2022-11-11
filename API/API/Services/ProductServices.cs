@@ -1,4 +1,5 @@
-﻿using API.Models;
+﻿using API.Interfaces;
+using API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
@@ -8,7 +9,7 @@ using X.PagedList;
 
 namespace API.Services
 {
-    public class ProductServices
+    public class ProductServices : IProductService
     {
         private ShopDbContext _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
@@ -130,23 +131,23 @@ namespace API.Services
             }
             return 0;
         }
-        public async Task<double> AverageStar(int ID)
-        {
-            double result = 0;
+        //public async Task<double> AverageStar(int ID)
+        //{
+        //    double result = 0;
 
-            try
-            {
-                result = await _context.Products.Where(p => p.ID == ID).Select(p => p.Ratings.Average(r => r.Star)).FirstOrDefaultAsync();
-            }
-            catch (System.Exception)
-            {
-                result = 0;
-            }
-            return result;
-        }
+        //    try
+        //    {
+        //        result = await _context.Products.Where(p => p.ID == ID).Select(p => p.Ratings.Average(r => r.Star)).FirstOrDefaultAsync();
+        //    }
+        //    catch (System.Exception)
+        //    {
+        //        result = 0;
+        //    }
+        //    return result;
+        //}
 
         //search
-        public List<Products> GetProductByCharacter(string searchstring) => _context.Products.Where(x => x.Name.Contains(searchstring)).ToList();
+        public List<Products> GetProductBySearchAdmin(string searchstring) => _context.Products.Where(x => x.Name.Contains(searchstring)).ToList();
 
         public List<ProductsDTO> GetProductBySearch(string searchstring)
         {

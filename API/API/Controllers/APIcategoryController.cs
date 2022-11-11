@@ -2,6 +2,7 @@
 using API.Models;
 using Microsoft.AspNetCore.Mvc;
 using ShareViewModel.DTO;
+using API.Interfaces;
 
 namespace API.Controllers
 {
@@ -9,35 +10,36 @@ namespace API.Controllers
     [Route("api/category")]
     public class APIcategoryController : ControllerBase
     {
-        public CategoryServices _categoryServices;
+    
+        private readonly ICategoryService _categoryServices;
 
-        public APIcategoryController(CategoryServices categoryServices) 
+        public APIcategoryController(ICategoryService categoryService) 
         {
-            _categoryServices = categoryServices;
+            _categoryServices = categoryService;
         }
 
         //category
         [HttpGet("get-all-categories")]
-        public IActionResult GetAllCategories()
+        public async Task<ActionResult<List<Category>>> GetAllCategories()
         {
-            var allCategories = _categoryServices.GetAllCategories();
+            var allCategories = await _categoryServices.GetAllCategories();
 
-            return Ok(allCategories);
+            return allCategories;
         }
 
 
         [HttpPost("add-category")]
-        public ActionResult<AdminCategoryDTO> AddCategory([FromBody] AdminCategoryDTO addcategory)
+        public async Task<ActionResult<AdminCategoryDTO>> AddCategory([FromBody] AdminCategoryDTO addcategory)
         {
-            var results = _categoryServices.AddCategory(addcategory);
+            var results = await _categoryServices.AddCategory(addcategory);
             return results;
         }
 
         [HttpPut("update-category/{ID}")]
-        public ActionResult<AdminCategoryDTO> UpdateCategory([FromBody] AdminCategoryDTO category, int ID)
+        public async Task<ActionResult<AdminCategoryDTO>> UpdateCategory([FromBody] AdminCategoryDTO category, int ID)
         {
-            var results = _categoryServices.UpdateCategory(category, ID);
-            return Ok(results);
+            var results = await _categoryServices.UpdateCategory(category, ID);
+            return results;
         }
 
         [HttpDelete("delete-category/{ID}")]

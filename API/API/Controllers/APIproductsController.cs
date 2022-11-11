@@ -1,4 +1,5 @@
-﻿using API.Models;
+﻿using API.Interfaces;
+using API.Models;
 using API.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,18 +14,17 @@ namespace API.Controllers
     [Route("api/product")]
     public class APIproductsController : ControllerBase
     {
-        public ProductServices _projectServices;
+        private readonly IProductService _productServices;
 
-
-        public APIproductsController(ProductServices projectServices)
+        public APIproductsController(IProductService productService)
         {
-            _projectServices = projectServices;
+            _productServices = productService;
         }
 
         [HttpGet("get-all-products")]
         public IActionResult GetAllProducts()
         {
-            var allProducts = _projectServices.GetAllProducts();
+            var allProducts = _productServices.GetAllProducts();
 
             return Ok(allProducts);
         }
@@ -33,7 +33,7 @@ namespace API.Controllers
         [HttpGet("admin/get-all-products")]
         public IActionResult GetAllProductsByAdmin()
         {
-            var allProducts = _projectServices.GetAllProductsByAdmin();
+            var allProducts = _productServices.GetAllProductsByAdmin();
 
             return Ok(allProducts);
         }
@@ -42,42 +42,42 @@ namespace API.Controllers
         [HttpGet("admin/product/{ID}")]
         public IActionResult GetProductByIDAdmin(int ID)
         {
-            var result = _projectServices.GetProductByIDAdmin(ID);
+            var result = _productServices.GetProductByIDAdmin(ID);
             return Ok(result);
         }
 
         [HttpPost("add-product")]
         public ActionResult<Products> AddProduct([FromBody] AdminProductDTO addproduct)
         {
-            var result = _projectServices.AddProduct(addproduct);
+            var result = _productServices.AddProduct(addproduct);
             return Ok(result);
         }
 
         [HttpPost("add-image")]
         public ActionResult UploadFile([FromForm] ImageDTO file) 
         {
-            var result = _projectServices.UploadFile(file);
+            var result = _productServices.UploadFile(file);
             return Ok(result);
         }
 
         [HttpPut("update-product/{ID}")]
         public ActionResult<Products> UpdateProduct([FromBody] AdminProductDTO product, int ID)
         {
-            var results = _projectServices.UpdateProduct(product, ID);
+            var results = _productServices.UpdateProduct(product, ID);
             return Ok(results);
         }
 
         [HttpDelete("delete-product/{ID}")]
         public IActionResult DeleteProduct(int ID)
         {
-            _projectServices.DeleteProduct(ID);
+            _productServices.DeleteProduct(ID);
             return Ok();
         }
 
         [HttpGet("{ID}")]
         public IActionResult GetProductByID(int ID)
         {
-            var Product = _projectServices.GetProductByID(ID);
+            var Product = _productServices.GetProductByID(ID);
 
             return Ok(Product);
         }
@@ -86,7 +86,7 @@ namespace API.Controllers
         [HttpGet("admin-search/{searchstring}")]
         public IActionResult GetProductByFilter(string searchstring)
         {
-            var Product = _projectServices.GetProductByCharacter(searchstring);
+            var Product = _productServices.GetProductBySearchAdmin(searchstring);
 
             return Ok(Product);
         }
@@ -94,7 +94,7 @@ namespace API.Controllers
         [HttpGet("search/{searching}")]
         public ActionResult<ProductsDTO> GetProductBySearch(string searching)
         {
-            var Product = _projectServices.GetProductBySearch(searching);
+            var Product = _productServices.GetProductBySearch(searching);
             return Ok(Product);
         }
         

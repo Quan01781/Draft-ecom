@@ -1,3 +1,4 @@
+using API.Interfaces;
 using API.Models;
 using API.Services;
 using Microsoft.EntityFrameworkCore;
@@ -26,10 +27,12 @@ builder.Services.AddSwaggerGen();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ShopDbContext>(options =>
     options.UseSqlServer(connectionString));
-builder.Services.AddTransient<ProductServices>();
-builder.Services.AddTransient<CategoryServices>();
-builder.Services.AddTransient<RatingServices>();
-builder.Services.AddTransient<CustomerServices>();
+
+builder.Services.AddScoped<ICategoryService, CategoryServices>();
+builder.Services.AddScoped<IProductService, ProductServices>();
+builder.Services.AddScoped<ICustomerService, CustomerServices>();
+builder.Services.AddScoped<IRatingService, RatingServices>();
+
 
 var app = builder.Build();
 

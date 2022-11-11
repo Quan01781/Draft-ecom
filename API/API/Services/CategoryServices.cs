@@ -1,14 +1,12 @@
-﻿using API.Models;
+﻿using API.Interfaces;
+using API.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic;
 using ShareViewModel.DTO;
-using System.Collections.Immutable;
-using X.PagedList;
+
 
 namespace API.Services
 {
-    public class CategoryServices
+    public class CategoryServices : ICategoryService
     {
         private ShopDbContext _context;
         public CategoryServices(ShopDbContext context)
@@ -17,8 +15,8 @@ namespace API.Services
         }
 
         //category
-        public List<Category> GetAllCategories() => _context.Category.ToList();
-        public AdminCategoryDTO AddCategory(AdminCategoryDTO addcategory)
+        public async Task<List<Category>> GetAllCategories() =>  _context.Category.ToList();
+        public async Task<AdminCategoryDTO> AddCategory(AdminCategoryDTO addcategory)
         {
             var category = new Category();
             category.ID = addcategory.ID;
@@ -29,7 +27,7 @@ namespace API.Services
             category.Updated_at = DateTime.Now;
 
             _context.Category.Add(category);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return new AdminCategoryDTO()
             {
@@ -42,14 +40,14 @@ namespace API.Services
             };
         }
 
-        public AdminCategoryDTO UpdateCategory(AdminCategoryDTO updatecategory, int ID)
+        public async Task<AdminCategoryDTO> UpdateCategory(AdminCategoryDTO updatecategory, int ID)
         {
             var category = _context.Category.Where(c => c.ID == ID).FirstOrDefault();
             if (updatecategory.Name != "") { category.Name = updatecategory.Name; }
             if (updatecategory.Description != "") { category.Description = updatecategory.Description; }
             category.Updated_at = DateTime.Now;
-            _context.SaveChanges();
-            
+            await _context.SaveChangesAsync();
+
 
             return new AdminCategoryDTO()
             {

@@ -1,12 +1,11 @@
 ﻿using API.Models;
 using Microsoft.EntityFrameworkCore;
 using ShareViewModel.DTO;
-using System.Collections.Immutable;
-using X.PagedList;
+using API.Interfaces;
 
 namespace API.Services
 {
-    public class RatingServices
+    public class RatingServices : IRatingService
     {
         private ShopDbContext _context;
         public RatingServices(ShopDbContext context)
