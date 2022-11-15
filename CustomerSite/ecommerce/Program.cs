@@ -23,7 +23,7 @@ builder.Services.AddSession(option =>
 builder.Services.AddHttpClient("", opt =>
 {
     opt.BaseAddress = new Uri(builder.Configuration["ApiUrl"] ?? "");
-}); 
+});
 
 builder.Services.AddHttpClient();
 

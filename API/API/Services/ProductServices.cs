@@ -42,6 +42,7 @@ namespace API.Services
         public ProductsDTO GetProductByID(int ID)
         {
             var x = _context.Products.Where(x => x.ID == ID).Include(x => x.Ratings.OrderByDescending(i=>i.ID)).FirstOrDefault();
+            
             ProductsDTO products = new ProductsDTO()
             {
                 ID = x.ID,
@@ -50,8 +51,11 @@ namespace API.Services
                 Price = x.Price,
                 Image = x.Image,
                 Description = x.Description,
+                Color = x.Color,
+                Size = x.Size,
                 Ratings = new List<RatingDTO>(),
             };
+            
             foreach (var rating in x.Ratings)
             {
                 var ratingDto = new RatingDTO()
@@ -63,6 +67,7 @@ namespace API.Services
                     Star = rating.Star,
                 };
                 products.Ratings.Add(ratingDto);
+                
             }
             return products;
 

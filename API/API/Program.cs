@@ -1,8 +1,13 @@
 using API.Interfaces;
 using API.Models;
 using API.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.IdentityModel.Tokens;
+
+using System.Text;
+
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,6 +37,26 @@ builder.Services.AddScoped<ICategoryService, CategoryServices>();
 builder.Services.AddScoped<IProductService, ProductServices>();
 builder.Services.AddScoped<ICustomerService, CustomerServices>();
 builder.Services.AddScoped<IRatingService, RatingServices>();
+builder.Services.AddScoped<IAuthService, AuthServices>();
+
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(o =>
+{
+    o.TokenValidationParameters = new TokenValidationParameters
+    {   
+        IssuerSigningKey = new SymmetricSecurityKey
+        (Encoding.UTF8.GetBytes(builder.Configuration["AppSettings:Token"])),
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true
+    };
+});
 
 
 var app = builder.Build();
