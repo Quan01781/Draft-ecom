@@ -26,19 +26,28 @@ namespace ecommerce.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Categories() 
+        {
+            var categories = await productClient.GetAllCategories();
+            return View(categories);
+        }
         public async Task<IActionResult> Product()
         {
             var products = await productClient.GetAllProduct();
 
-            return View(products);
+            return View("ProductByFilter",products);
         }
 
 
         public async Task<IActionResult> ProductByFilter(string searchstring)
         {
-            var products = await productClient.GetProductByFilter(searchstring);
-
-            return View(products);
+            if (searchstring == null) { return View("Index"); }
+            else
+            {
+                var products = await productClient.GetProductByFilter(searchstring);
+                return View(products);
+            }
+           
         }
         
 
@@ -47,5 +56,7 @@ namespace ecommerce.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        
     }
 }

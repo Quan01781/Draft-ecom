@@ -7,7 +7,7 @@ namespace API.Models
         public int ID { get; set; }
         [Required]
         public string Name { get; set; }
-        
+        public string? Description { get; set; }
         public string? Created_by { get; set; }
 
         public DateTime? Created_at { get; set; }

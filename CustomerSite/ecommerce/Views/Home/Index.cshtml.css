@@ -48,6 +48,16 @@
     color: #fff;
 }
 
+#more {
+    cursor: pointer;
+    font-family: Lovelo-Black;
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    padding-left: 45%;
+}
+
 /*slogan*/
 .slogan {
     background-image: url(https://localhost:44380/wwwroot/upload/image/product-bg/slogan-bg.jpg);

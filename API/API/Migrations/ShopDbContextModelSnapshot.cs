@@ -36,6 +36,9 @@ namespace API.Migrations
                     b.Property<string>("Created_by")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -46,6 +49,73 @@ namespace API.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Category");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Description = "flowers for holidays",
+                            Name = "Holiday flowers"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Description = "flowers for wedding",
+                            Name = "Wedding flowers"
+                        },
+                        new
+                        {
+                            ID = 3,
+                            Description = "flowers for sadness",
+                            Name = "Condolence flowers"
+                        },
+                        new
+                        {
+                            ID = 4,
+                            Description = "flowers for anniversary events",
+                            Name = "Anniversary flowers"
+                        },
+                        new
+                        {
+                            ID = 5,
+                            Description = "flowers for mother's day",
+                            Name = "Mother's day flowers"
+                        });
+                });
+
+            modelBuilder.Entity("API.Models.Customer", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Created_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("First_Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Last_Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Phone")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("API.Models.Products", b =>
@@ -56,17 +126,46 @@ namespace API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
+                    b.Property<int?>("CategoryID")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Created_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Created_by")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Number")
-                        .HasColumnType("int");
-
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Size")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Updated_at")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("ID");
+
+                    b.HasIndex("CategoryID");
 
                     b.ToTable("Products");
 
@@ -74,89 +173,100 @@ namespace API.Migrations
                         new
                         {
                             ID = 1,
-                            Name = "AA",
-                            Number = 10,
-                            Price = 10000.0
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Name = "BB",
-                            Number = 15,
-                            Price = 20000.0
-                        },
-                        new
-                        {
-                            ID = 3,
-                            Name = "CC",
-                            Number = 20,
-                            Price = 30000.0
-                        },
-                        new
-                        {
-                            ID = 4,
-                            Name = "DD",
-                            Number = 11,
-                            Price = 20000.0
-                        },
-                        new
-                        {
-                            ID = 5,
-                            Name = "EE",
-                            Number = 12,
-                            Price = 70000.0
-                        },
-                        new
-                        {
-                            ID = 6,
-                            Name = "FF",
-                            Number = 16,
-                            Price = 65000.0
-                        },
-                        new
-                        {
-                            ID = 7,
-                            Name = "GG",
-                            Number = 17,
-                            Price = 30000.0
-                        },
-                        new
-                        {
-                            ID = 8,
-                            Name = "HH",
-                            Number = 15,
-                            Price = 70000.0
+                            CategoryID = 1,
+                            Color = "purple",
+                            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque.Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam erat mi, rutrum at sollicitudin rhoncus",
+                            Image = "product-1.jpg",
+                            Name = "Blossom bouquet flower",
+                            Price = 60000.0,
+                            Quantity = 100,
+                            Size = "Medium(30cm)"
                         });
                 });
 
-            modelBuilder.Entity("CategoryProducts", b =>
+            modelBuilder.Entity("API.Models.Rating", b =>
                 {
-                    b.Property<int>("CategoriesID")
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductsID")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Created_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductID")
                         .HasColumnType("int");
 
-                    b.HasKey("CategoriesID", "ProductsID");
+                    b.Property<int>("Star")
+                        .HasColumnType("int");
 
-                    b.HasIndex("ProductsID");
+                    b.HasKey("ID");
 
-                    b.ToTable("CategoryProducts");
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("Ratings");
                 });
 
-            modelBuilder.Entity("CategoryProducts", b =>
+            modelBuilder.Entity("API.Models.User", b =>
                 {
-                    b.HasOne("API.Models.Category", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesID")
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<byte[]>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("API.Models.Products", b =>
+                {
+                    b.HasOne("API.Models.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("API.Models.Products", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsID")
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("API.Models.Rating", b =>
+                {
+                    b.HasOne("API.Models.Products", "Product")
+                        .WithMany("Ratings")
+                        .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("API.Models.Category", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("API.Models.Products", b =>
+                {
+                    b.Navigation("Ratings");
                 });
 #pragma warning restore 612, 618
         }

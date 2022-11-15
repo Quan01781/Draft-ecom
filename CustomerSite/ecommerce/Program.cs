@@ -23,7 +23,7 @@ builder.Services.AddSession(option =>
 builder.Services.AddHttpClient("", opt =>
 {
     opt.BaseAddress = new Uri(builder.Configuration["ApiUrl"] ?? "");
-}); 
+});
 
 builder.Services.AddHttpClient();
 
@@ -34,7 +34,8 @@ builder.Services.AddScoped<IProductClient, ProductClient>();
 builder.Services.AddControllersWithViews()
     .AddRazorOptions(options =>
     {
-        options.ViewLocationFormats.Add("/Components/Category/Default.cshtml");
+        options.ViewLocationFormats.Add("/Components/Product/Default.cshtml");
+        options.ViewLocationFormats.Add("/Components/ListCategory/Default.cshtml");
     });
 var app = builder.Build();
 

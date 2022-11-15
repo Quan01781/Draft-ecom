@@ -6,16 +6,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="product-section section-padding">
+<div class="product-section section-padding" style="justify-content:center">
     <h2 class="title-bg-gray">Products</h2>
 
+	<div class="container">
+		<div class="row" style="padding-left: 14%">
    @foreach (var item in Model){
-		<div class="card text-center float-start col-lg-4 col-md-4 m-0">
-			<div class="card-header">@item.Number</div>
+		<div class="card text-center col-lg-3 col-md-3 mb-2 m-2" style="width:20%">
+		<img src="https://localhost:44380/wwwroot/upload/image/product/@item.Image" class="card-img-top">
 			<div class="card-body">
 				<h5 class="card-title">@item.Name</h5>
+			<a href="/product/productbyid/@item.ID" class="btn btn-secondary">View Detail</a>
+				
 			</div>
 		</div>
 	}
+		</div>
+	</div>
 </div>
-
+<div class="offer text-center">
+    <div class="container">
+        <h2>Special Offer</h2>
+        <p>Fresh Flowers for any special occasion</p>
+    </div>
+</div>

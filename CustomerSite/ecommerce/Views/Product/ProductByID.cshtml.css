@@ -22,6 +22,7 @@
 .price-wrapper .price {
     height: 1.3em;
     display: table-cell;
+    font-size:22px;
     vertical-align: middle;
     text-align: center;
     line-height: 120%;
@@ -50,9 +51,15 @@
     width: 160px
 }
 
+img {
+    width:50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /*product rating*/
-.rating {
+.rating-contain {
     padding: 30px 0;
     border-top: 1px solid #ececec
 }
@@ -83,4 +90,20 @@ textarea {
     background-color: #d26e4b;
     border: 1px solid #d26e4b;
     color: white;
+}
+
+/*reviewed*/
+.reviewed {
+    padding: 20px 0;
+    //border-top: 1px solid #ececec
+}
+
+.reviewed-content {
+    border: 1px solid #ececec;
+    width: 100%;
+    height: 65px;
+}
+
+.checked {
+    color:orange;
 }
