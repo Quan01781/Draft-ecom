@@ -87,6 +87,8 @@ namespace API.Services
             product.CategoryID = addproduct.CategoryID;
             product.Image = addproduct.Image;
             product.Description = addproduct.Description;
+            product.Color = addproduct.Color;
+            product.Size = addproduct.Size;
             product.Created_by = addproduct.Created_by;
             product.Created_at = DateTime.Now;
             product.Updated_at = DateTime.Now;
@@ -120,6 +122,9 @@ namespace API.Services
             if (updateproduct.CategoryID != null) { product.CategoryID = updateproduct.CategoryID; }
             if (updateproduct.Image != "") { product.Image = updateproduct.Image; }
             if (updateproduct.Description != "") { product.Description = updateproduct.Description; }
+            if (updateproduct.Color != "") { product.Color = updateproduct.Color; }
+            if (updateproduct.Size != "") { product.Size = updateproduct.Size; }
+
                 product.Updated_at = DateTime.Now;
                 _context.SaveChanges();
             

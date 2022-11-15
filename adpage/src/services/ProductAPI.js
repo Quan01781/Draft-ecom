@@ -11,7 +11,7 @@ export async function GetProduct() {
   }
 }
 
-export async function AddProduct(productName, productQuantity, productPrice, productCategoryID, productImage, productDescription){
+export async function AddProduct(productName, productQuantity, productPrice, productCategoryID, productImage, productDescription, color, size){
   try {
     let product={
       name: productName,
@@ -20,6 +20,8 @@ export async function AddProduct(productName, productQuantity, productPrice, pro
       categoryID: productCategoryID,
       image: productImage,
       description: productDescription,
+      color: color,
+      size: size,
       created_by: null
     };
     let result = await axios.post(url+'add-product', product);
@@ -40,7 +42,7 @@ export async function AddImage(ImageFile){
   }
 }
 
-export async function UpdateProduct(productID, productName, productQuantity, productPrice, productCategoryID, productImage, productDescription){
+export async function UpdateProduct(productID, productName, productQuantity, productPrice, productCategoryID, productImage, productDescription, color, size){
   try {
     let product={
       name: productName,
@@ -49,6 +51,8 @@ export async function UpdateProduct(productID, productName, productQuantity, pro
       categoryID: productCategoryID,
       image: productImage,
       description: productDescription,
+      color: color,
+      size:size,
       created_by: null
     };
     let result = await axios.put(url+`update-product/${productID}`, product);

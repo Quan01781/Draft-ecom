@@ -54,9 +54,7 @@ const AllCategory = () => {
     e.preventDefault();
     const name = e.target.name.value;
     const description = e.target.description.value;
-    if(add_category(name, description)){
-      alert("added success")
-    }else{ alert("failed")}
+    add_category(name, description)
   }
 
   const handleUpdate = (e)=>{
@@ -64,16 +62,12 @@ const AllCategory = () => {
     const name = e.target.name.value;
     const description = e.target.description.value;
     const ID = GetCategoryID();
-    if(update_category(name, description, ID)){
-      alert("updated success")
-    }else{ alert("failed")}
+    update_category(name, description, ID)
   }
 
   const handleDelete = (e)=>{
     const ID = GetCategoryID();
-    if(delete_category(ID)){
-      alert("deleted success")
-    }else{ alert("failed")}
+    delete_category(ID)
   }
 
   function setCategoryID(ID){

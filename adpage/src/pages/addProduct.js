@@ -11,8 +11,8 @@ export default function AddProductPage(){
     const [fileName, setFileName] = useState();
 
 
-    const add_product = async(productName, productQuantity, productPrice, productCategoryID, productImage, productDescription) => {
-        const result = await AddProduct(productName, productQuantity, productPrice, productCategoryID, productImage, productDescription);
+    const add_product = async(productName, productQuantity, productPrice, productCategoryID, productImage, productDescription, color, size) => {
+        const result = await AddProduct(productName, productQuantity, productPrice, productCategoryID, productImage, productDescription, color, size);
         console.log(result)
       }
 
@@ -38,9 +38,11 @@ export default function AddProductPage(){
         const categoryID = e.target.categoryID.value;
         const image = fileName;
         const description = e.target.description.value;
+        const color = e.target.color.value;
+        const size = e.target.size.value;
         formData.append("formFile", file);
         formData.append("fileName", fileName);
-        add_product(name, quantity, price, categoryID, image, description);
+        add_product(name, quantity, price, categoryID, image, description, color, size);
         add_image(formData)
         
       }
@@ -77,6 +79,14 @@ export default function AddProductPage(){
                 style={{ height: '100px', width: '50%'}}
                 name="description"
                 />
+            </FloatingLabel>
+
+            <FloatingLabel controlId="floatingInput" label="Product color" className="mb-3">
+                <Form.Control type="text" placeholder="Product color"  style={{width: '50%'}} name="color"/>
+            </FloatingLabel>
+
+            <FloatingLabel controlId="floatingInput" label="Product size" className="mb-3">
+                <Form.Control type="text" placeholder="Product size"  style={{width: '50%'}} name="size"/>
             </FloatingLabel>
 
             <Button variant="dark" type="submit">
