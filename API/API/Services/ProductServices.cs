@@ -59,7 +59,7 @@ namespace API.Services
                     ID = rating.ID,
                     ProductID = rating.ProductID,
                     Content = rating.Content,
-                    CreateDate = rating.CreateDate,
+                    Created_at = rating.Created_at,
                     Star = rating.Star,
                 };
                 products.Ratings.Add(ratingDto);

@@ -4,6 +4,7 @@ using API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    partial class ShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221113235925_v4")]
+    partial class v4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,32 +56,8 @@ namespace API.Migrations
                         new
                         {
                             ID = 1,
-                            Description = "flowers for holidays",
-                            Name = "Holiday flowers"
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Description = "flowers for wedding",
-                            Name = "Wedding flowers"
-                        },
-                        new
-                        {
-                            ID = 3,
-                            Description = "flowers for sadness",
-                            Name = "Condolence flowers"
-                        },
-                        new
-                        {
-                            ID = 4,
-                            Description = "flowers for anniversary events",
-                            Name = "Anniversary flowers"
-                        },
-                        new
-                        {
-                            ID = 5,
-                            Description = "flowers for mother's day",
-                            Name = "Mother's day flowers"
+                            Description = "ok",
+                            Name = "A1"
                         });
                 });
 
@@ -94,9 +72,6 @@ namespace API.Migrations
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("Created_at")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -168,9 +143,9 @@ namespace API.Migrations
                             CategoryID = 1,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque.Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam erat mi, rutrum at sollicitudin rhoncus",
                             Image = "product-1.jpg",
-                            Name = "Blossom bouquet flower",
-                            Price = 60000.0,
-                            Quantity = 100
+                            Name = "AA",
+                            Price = 10000.0,
+                            Quantity = 10
                         });
                 });
 
@@ -186,8 +161,11 @@ namespace API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("Created_at")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("CustomerID")
+                        .HasColumnType("int");
 
                     b.Property<int>("ProductID")
                         .HasColumnType("int");
@@ -197,34 +175,11 @@ namespace API.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("CustomerID");
+
                     b.HasIndex("ProductID");
 
                     b.ToTable("Ratings");
-                });
-
-            modelBuilder.Entity("API.Models.User", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<byte[]>("PasswordHash")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<byte[]>("PasswordSalt")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("API.Models.Products", b =>
@@ -240,6 +195,10 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.Rating", b =>
                 {
+                    b.HasOne("API.Models.Customer", null)
+                        .WithMany("Ratings")
+                        .HasForeignKey("CustomerID");
+
                     b.HasOne("API.Models.Products", "Product")
                         .WithMany("Ratings")
                         .HasForeignKey("ProductID")
@@ -252,6 +211,11 @@ namespace API.Migrations
             modelBuilder.Entity("API.Models.Category", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("API.Models.Customer", b =>
+                {
+                    b.Navigation("Ratings");
                 });
 
             modelBuilder.Entity("API.Models.Products", b =>

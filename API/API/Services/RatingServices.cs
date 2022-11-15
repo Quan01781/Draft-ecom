@@ -25,7 +25,7 @@ namespace API.Services
                 ratingDTO.Star = rating.Star;
                 ratingDTO.Content = rating.Content;
                 ratingDTO.ProductID = rating.ProductID;
-                ratingDTO.CreateDate = rating.CreateDate;
+                ratingDTO.Created_at = rating.Created_at;
    
                 ratingList.Add(ratingDTO);
 
@@ -39,7 +39,7 @@ namespace API.Services
             var rating = new Rating();
             rating.ProductID = ratingDto.ProductID;
             //rating.Product = await _context.Products.FirstOrDefaultAsync(p => p.ID == ratingDto.ProductID);
-            rating.CreateDate = DateTime.Now;
+            rating.Created_at = DateTime.Now;
             rating.Star = ratingDto.Star;
             rating.Content = ratingDto.Content;
 

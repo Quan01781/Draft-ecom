@@ -13,6 +13,6 @@ namespace ShareViewModel.DTO
         public int Star { get; set; }
         public string Content { get; set; }
         public int ProductID { get; set; }
-        public DateTime CreateDate { get; set; }       
+        public DateTime? Created_at { get; set; }       
     }
 }

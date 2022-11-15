@@ -15,6 +15,6 @@ namespace API.Models
         public string Email { get; set; }
         [Required]
         public int Phone  { get; set; }
-        public ICollection<Rating> Ratings { get; set; }
+        public DateTime? Created_at { get; set; }
     }
 }
